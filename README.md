@@ -13,19 +13,19 @@ Jion Fairchild - Backend
 
 ###Checklist
 
-- [ ]Write a New Story
-  -[x]Login with 1 hardcoded user
-  - [ ]new.html has a form for submitting a new story
-    -names: title, content
-  - [ ]app.py gives info to util.py
-    -variables: title, content
-    -util.newStory()
-  - [ ]util.py writes the info to a database
-    -create the table and enter the data
-- [ ]Add on to the story
+- [ ] Write a New Story
+  - [x] Login with 1 hardcoded user
+  - [ ] new.html has a form for submitting a new story
+    - names: title, content
+  - [ ] app.py gives info to util.py
+    - variables: title, content
+    - util.newStory()
+  - [ ] util.py writes the info to a database
+    - create the table and enter the data
+- [ ] Add on to the story
   - [ ]
-- [ ]Have multiple stories
-- [ ]Have multiple users
-- [ ]User registration
-- [ ]Delete story
-- [ ]Delete line
+- [ ] Have multiple stories
+- [ ] Have multiple users
+- [ ] User registration
+- [ ] Delete story
+- [ ] Delete line
