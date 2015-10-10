@@ -28,7 +28,7 @@ Jion Fairchild - Backend
     - columns:content, title, lines
     - UID defualt 0 for now, lines: 1
 
-  - #Problems:
+  - #######Problems:
     - [ ] SID(storyID): how to generate
     - [ ] UID(userID): how to pass  
 
