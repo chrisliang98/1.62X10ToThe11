@@ -1,0 +1,24 @@
+<!DOCTYPE>
+<html>
+    <header>
+    <title>Login</title>
+    	<link rel="stylesheet" type="text/css" href="static/style.css">
+    	<title>Login</title>
+    </header>
+    <body>
+    <center>
+        <h1> Login </h1>
+        {% if error %}
+        	<h2> {{error}} </h2>
+        {% endif %}
+        <form method="post">
+        	<ul>
+        		<li>Username: <input type="text" name="username"></li>
+        		<li>Password: <input type="text" name="password"></li>
+        		<li><input type="submit" name=lbutton value="Login"></li>
+        		<li><input type="submit" name="cbutton" value="Cancel"></li>
+        	</ul>
+        </form>
+	</center>
+    </body>
+</html> 
