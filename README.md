@@ -25,10 +25,10 @@ Jion Fairchild - Backend
   - [ ] util.py writes the info to a database
     - call it newStory()
     -new table story
-    - columns:content, title, lines
+    - columns: SID, UID, content, title, lines
     - UID defualt 0 for now, lines: 1
 
-  - #######Problems:
+  - ######Problems:
     - [ ] SID(storyID): how to generate
     - [ ] UID(userID): how to pass  
 
