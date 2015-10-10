@@ -26,7 +26,7 @@ def login():
 			return render_template("login.html",error="Invalid Username or Password")
 
 
-@app.route('/logoff', methods=['GET','POST'])
+@app.route('/logout', methods=['GET','POST'])
 def logoff():
 	#remove the username from the session if it's there
 	session.pop('n', None)
