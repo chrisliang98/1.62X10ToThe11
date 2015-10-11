@@ -1,8 +1,8 @@
 import sqlite3
 
-conn = sqlite3.connect("myDataBase.db")
 
 def authenticate(username, password):
+    conn = sqlite3.connect("myDataBase.db")
     c = conn.cursor()
     ans = c.execute('select * from logins where username = "'+username+'" and password = "'+password+'";') 
     for r in ans:
@@ -11,6 +11,7 @@ def authenticate(username, password):
     #returns a boolean that describes whether the user has succesfully logged in.
 
 def makePost(username, title, contents):
+    conn = sqlite3.connect("myDataBase.db")
     c = conn.cursor()
     ans = c.execute('select * from posts where title = "%s";' % title)
     for r in ans:
@@ -23,6 +24,7 @@ def makePost(username, title, contents):
     #operation will be unsuccessful if a post with the same title already exists
 
 def getPost(title):
+    conn = sqlite3.connect("myDataBase.db")
     c = conn.cursor()
     ans = c.execute('select * from posts where title ="%s";' % title) 
     for r in ans:
@@ -31,6 +33,7 @@ def getPost(title):
     #may only be useful for debugging
 
 def getAllPosts():
+    conn = sqlite3.connect("myDataBase.db")
     c = conn.cursor()
     c.execute('select * from posts;')
     return c.fetchall();
@@ -41,6 +44,7 @@ def getAllPosts():
 
 
 def addToPost(title, content):
+    conn = sqlite3.connect("myDataBase.db")
     c = conn.cursor()
     newContent = " "+getPost(title)+content
     c.execute('update posts set contents = "%s" where title="%s";'% (newContent,title))
