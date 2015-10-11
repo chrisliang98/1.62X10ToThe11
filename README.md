@@ -14,7 +14,7 @@ Jion Fairchild - Backend
 ###Task List
 - [ ] Write a New Story
 
-  - [x] Login with 1 hardcoded user
+  - [x] 10/09/2015 Login with 1 hardcoded user 
   - [ ] new.html has a form for submitting a new story
     - name: content, title
     - should have max characters
