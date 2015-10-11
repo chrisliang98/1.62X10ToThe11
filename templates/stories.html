@@ -1,0 +1,32 @@
+<!DOCTYPE>
+<html>
+    <head>
+        <title>Stories</title>
+        <link rel="stylesheet" type="text/css" href="/static/style.css">
+    </head>
+    <body>
+        {% if 'n' in session %}
+        <nav>
+            <a href="/home">Home</a>
+            <a href="/newStory">Submit New Story</a>
+            <a href="/logout">Logout</a>
+        </nav>
+        <center>
+            <h1><b>All Stories</b></h1>
+            {% for story in stories %}
+                <h1>{{story[1]}}</h1>
+                <h2>Posted by: {{story[0]}}</h2>
+                <h3>{{story[2]}}</h3>
+                <hr>
+            {% endfor %}
+        </center>
+        {% else %}
+        <nav>
+            <a href="/login">Login</a>
+        </nav>
+        <center>
+            You must be logged in to view stories
+        </center>
+        {% endif %}
+    </body>
+</html>
