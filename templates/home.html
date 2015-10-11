@@ -1,0 +1,23 @@
+<!DOCTYPE>
+<html>
+    <header>
+    <title>Home</title>
+    	<link rel="stylesheet" type="text/css" href="static/style.css">
+    	<title>Home</title>
+    </header>
+    <body>
+    	{% if not 'n' in session %}
+            <nav>
+                <a href='/login'>Login</a>
+            </nav>
+        {% else %}
+            <nav>
+                <a href='/logout'>Logout<a>
+            </nav>
+    	<center>
+    		<h1>Welcome</h1>
+    		<h2> {{posts}} </h2>
+  		{% endif %}
+  		</center>
+  	</body>
+</html> 
