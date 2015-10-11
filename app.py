@@ -51,16 +51,15 @@ def nStory():
                 title=request.form['sTitle']
                 line=request.form['entry']
                 if button=="Submit":
-                        utils.newStory(username, title, line)
-                        return redirect('/story/%s')(title)
+                        module.makePost(username, title, line)
+                        return redirect('/story/%s' %title)
                 else:
                         return render_template("new.html")
         return render_template("new.html")
 
-@app.route("/story")
 @app.route("/story/<title>")
-def story():
-        return render_template("story.html")
+def story(title=""):
+        return render_template("story.html", title=title, line=module.getPost(title))
 
 if __name__ == "__main__":
 	app.debug = True
