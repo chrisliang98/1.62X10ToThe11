@@ -3,3 +3,10 @@ def authenticate(uname,pword):
 		return True
 	else:
 		return False
+
+def newStory(SID, UID, title, content, lines):
+
+def get(SID):
+
+def addContent(SID, UID, content, lineNo):
+	
