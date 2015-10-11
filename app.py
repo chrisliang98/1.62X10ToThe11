@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, session, redirect, url_for, g
 import sqlite3
 import utils
+import module
 
 app = Flask(__name__)
 
@@ -42,8 +43,23 @@ def home():
 
 @app.route("/newStory")
 def nStory():
-    return render_template("new.html")
+        if request.method=="GET":
+                return render_template("new.html")
+        else:
+                username='test'
+                button=request.form['button']
+                title=request.form['sTitle']
+                line=request.form['entry']
+                if button=="Submit":
+                        utils.makestory(username, title, line)
+                        return redirect('/story')
+                else:
+                        return render_template("new.html")
+        return render_template("new.html")
 
+@app.route("/story")
+def story():
+        return render_template("story.html")
 
 if __name__ == "__main__":
 	app.debug = True

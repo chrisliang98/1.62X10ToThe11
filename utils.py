@@ -4,6 +4,8 @@ def authenticate(uname,pword):
 	else:
 		return False
 
+def newStory(username, title, line):
+        module.makePost(username,title,line)
 #def newStory(SID, UID, title, content, lines):
 
 #def get(SID):
