@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request, session, redirect, url_for, g
 import sqlite3
-import utils
 import module
 
 app = Flask(__name__)
@@ -18,7 +17,7 @@ def login():
 		if button == "Cancel":
 			return redirect(url_for('home'))
 		#if credentials valid, log them in with session
-		if utils.authenticate(uname,pword):
+		if module.authenticate(uname,pword):
 			if 'n' not in session:
 				session['n'] = 0
 			return redirect(url_for('home'))
