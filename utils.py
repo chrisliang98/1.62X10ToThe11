@@ -1,8 +1,6 @@
+import module
 def authenticate(uname,pword):
-	if uname=="test" and pword=="c720":
-		return True
-	else:
-		return False
+	return uname=="test" and pword=="c720"
 
 def newStory(username, title, line):
         module.makePost(username,title,line)
