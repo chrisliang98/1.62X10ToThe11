@@ -4,9 +4,9 @@ def authenticate(uname,pword):
 	else:
 		return False
 
-def newStory(SID, UID, title, content, lines):
+#def newStory(SID, UID, title, content, lines):
 
-def get(SID):
+#def get(SID):
 
-def addContent(SID, UID, content, lineNo):
+#def addContent(SID, UID, content, lineNo):
 	

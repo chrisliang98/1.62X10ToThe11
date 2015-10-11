@@ -37,7 +37,12 @@ def logoff():
 @app.route("/home/")
 @app.route("/")
 def home():
-	return render_template("home.html")
+    return render_template("home.html")
+
+
+@app.route("/newStory")
+def nStory():
+    return render_template("new.html")
 
 
 if __name__ == "__main__":
