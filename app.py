@@ -41,7 +41,7 @@ def home():
     return render_template("home.html")
 
 
-@app.route("/newStory")
+@app.route("/newStory", methods=['GET','POST'])
 def nStory():
         if request.method=="GET":
                 return render_template("new.html")
@@ -51,13 +51,14 @@ def nStory():
                 title=request.form['sTitle']
                 line=request.form['entry']
                 if button=="Submit":
-                        utils.makestory(username, title, line)
-                        return redirect('/story')
+                        utils.newStory(username, title, line)
+                        return redirect('/story/%s')(title)
                 else:
                         return render_template("new.html")
         return render_template("new.html")
 
 @app.route("/story")
+@app.route("/story/<title>")
 def story():
         return render_template("story.html")
 
