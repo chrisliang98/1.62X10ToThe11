@@ -11,19 +11,27 @@ def login():
     else:
         #login form submission
 	button = request.form['button']
-        uname = request.form['username']
-	pword = request.form['password']
+        #uname = request.form['username']
+	#pword = request.form['password']
         #cancel back to home page (can't see anything since no logged in)
     	if button == "Cancel":
             return redirect(url_for('home'))
     	#if credentials valid, log them in with session
-        if module.authenticate(uname,pword):
-            if 'n' not in session:
-                session['n'] = 0
-                return redirect(url_for('home'))
-	    #else renders login w/ error message
-        else:
-            return render_template("login.html",error="Invalid Username or Password")
+        if button == "create":
+            newUser = request.form['newUser']
+            newPass = request.form['newPass']
+            module.newUser(newUser,newPass)
+            return redirect(url_for('home'))
+        if button == "Login":
+            uname = request.form['username']
+            pword = request.form['password']
+            if module.authenticate(uname,pword):
+                if 'n' not in session:
+                    session['n'] = uname
+                    return redirect(url_for('home'))
+                    #else renders login w/ error message
+            else:
+                    return render_template("login.html",error="Invalid Username or Password")
 
 
 @app.route('/logout', methods=['GET','POST'])
@@ -45,7 +53,7 @@ def nStory():
     if request.method=="GET":
         return render_template("new.html")
     else:
-        username='test'
+        username=session['n']
         button=request.form['button']
         title=request.form['sTitle']
         line=request.form['entry']

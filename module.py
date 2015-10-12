@@ -10,6 +10,13 @@ def authenticate(username, password):
     return False;
     #returns a boolean that describes whether the user has succesfully logged in.
 
+def newUser(username,password):
+    conn = sqlite3.connect("myDataBase.db")
+    c = conn.cursor()
+    ans = c.execute('insert into logins values("'+username+'","'+password+'");')
+    conn.commit()
+    return True
+
 def makePost(username, title, contents):
     conn = sqlite3.connect("myDataBase.db")
     c = conn.cursor()
