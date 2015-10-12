@@ -10,6 +10,15 @@
             <a href='/logout'>Logout</a>
     </nav>
     <body>
-      {{line}}
+        <center>
+            <font color="white">
+            <h1> {{title}} </h1>
+            <h2> {{line}} </h2>
+            <form method="POST" class="bottom">
+                <input type="text" name="newLine">
+                <br>
+                <input type="submit" name="button" value="Add to Story">
+            </form>
+        </center>
     </body>
 </html>
