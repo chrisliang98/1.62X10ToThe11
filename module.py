@@ -68,3 +68,10 @@ def addToPost(title, content):
     conn.commit()
     return True;
     #adds content to content of original post and returns a boolean representing wether or not the operation was successful
+
+def removePost(title):
+    conn = sqlite3.connect("myDataBase.db")
+    c = conn.cursor()
+    c.execute('delete from posts where title="%s";' % title)
+    conn.commit()
+    return True;
