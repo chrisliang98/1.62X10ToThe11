@@ -16,9 +16,9 @@ Jion Fairchild - Backend
 ###Instructions
 1. Run app.py
 2. Go to http://0.0.0.0:5000/
-3. Interact
-Note: Must have flask and sqlite3 installed
-flaks: http://flask.pocoo.org/docs/0.10/installation/
+3. Interact  
+Note: Must have flask and sqlite3 installed  
+flaks: http://flask.pocoo.org/docs/0.10/installation/  
 sqlite3: https://www.sqlite.org/download.html 
 
 ###Task List
