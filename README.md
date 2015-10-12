@@ -15,47 +15,46 @@ Jion Fairchild - Backend
 - [ ] Write a New Story
 
   - [x] 10/09/2015 Login with 1 hardcoded user 
-  - [ ] new.html has a form for submitting a new story
+  - [x] 10/11/2015 new.html has a form for submitting a new story
     - name: content, title
     - should have max characters
 
   - [ ] app.py gives info to util.py
-    - use util.newStory()
+    - use module.makePost()
+    - variables: username, title, contents
 
-  - [ ] util.py writes the info to a database
-    - call it newStory()
-    -new table story
-    - columns: SID, UID, content, title, lines
-    - UID defualt 0 for now, lines: 1
-
-  - ######Problems:
-    - [ ] SID(storyID): how to generate
-    - [ ] UID(userID): how to pass
+  - [x] 10/11/2015 util.py writes the info to a database
+    - call it makePost()
 
 - [ ] Add on to the Story
-  - [ ] story.html displays the existing story
-    - {{story}}
+  - [x] 10/11/2015 story.html displays the current story
+    - {{post}}
   - [ ] story.html has a form for sumbmitting content
     - name: content
     - should have max character
 
-  - [ ] app.py gives info to util.py
-    - use util.addContent()
-  - [ ] app.py gets the content from util.py redirect to story.html
-    - call the content story and give it to story.html
-    - use util.get() to get the content
+  - [ ] app.py gives info to module.py
+    - use module.addToPost()
+    - variables: title, content
+  - [ ] app.py gets the content from module.py redirect to story.html
+    - use module.getPost() to get the content
+    - give it to story.html as story
 
-  - [ ] util.py adds on to existing content
-    - call it addContent()
-    - new table body
-      - columns: UID, content, SID, line#
-    - line# based on lines column of SID
+  - [x] 10/11/2015 module.py adds on to existing content
+    - call it addToPost()
     - go crazy just add it
-  - [ ] util.py gets the content from the database with the SID
-    - call it get()
-
+  - [x] 10/11/2015 module.py gets the content from the database with the title
+    - call it getPost()
 
 - [ ] Have multiple stories
+  - [x] 10/11/2015 home.html has a list of all the stories 
+
+  - [ ] app.py formats the titles of all the posts and gives it to table as post
+    - for item in getAllPosts():
+      <a href='story/"%s"'> "%s" </a> %item[1]
+
+  - [ ]
+
 - [ ] Have multiple users
 - [ ] User registration
 - [ ] Delete story

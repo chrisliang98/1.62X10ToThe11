@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request, session, redirect, url_for, g
 import sqlite3
-import utils
 import module
 
 app = Flask(__name__)
@@ -11,18 +10,18 @@ def login():
         return render_template("login.html")
     else:
         #login form submission
-        button = request.form['button']
+	button = request.form['button']
         uname = request.form['username']
-        pword = request.form['password']
+	pword = request.form['password']
         #cancel back to home page (can't see anything since no logged in)
-        if button == "Cancel":
+    	if button == "Cancel":
             return redirect(url_for('home'))
-        #if credentials valid, log them in with session
-        if utils.authenticate(uname,pword):
+    	#if credentials valid, log them in with session
+        if module.authenticate(uname,pword):
             if 'n' not in session:
                 session['n'] = 0
                 return redirect(url_for('home'))
-            #else renders login w/ error message
+	    #else renders login w/ error message
         else:
             return render_template("login.html",error="Invalid Username or Password")
 
@@ -57,9 +56,11 @@ def nStory():
             return render_template("new.html")
         return render_template("new.html")
 
+
 @app.route("/story/<title>")
 def story(title=""):
     return render_template("story.html", title=title, line=module.getPost(title))
+
 
 @app.route("/stories")
 def stories():
