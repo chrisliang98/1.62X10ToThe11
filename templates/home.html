@@ -2,23 +2,54 @@
 <html>
     <header>
         <title>Home</title>
-    	<link rel="stylesheet" type="text/css" href="/static/style.css">
+        <link rel="stylesheet" type="text/css" href="/static/style.css">
     </header>
-    <body>
-    	{% if not 'n' in session %}
-            <nav>
-                <a href='/login'>Login</a>
-            </nav>
+    <body class="home">
+
+        {% if not 'n' in session %}
+        <form method="POST" class="left">
+            <center>
+            {% if error %}
+            <h2> {{error}} </h2>
+            {% endif %}
+            <h2>Log In</h2>
+            </center>
+            Username: <input type="text" name="username" class="box">
+            <br>
+            Password:&nbsp; <input type="password" name="password" class="box">
+            <br><br>
+            <center>
+            <input type="submit" class="button" name="button" value="Login">
+            </center>
+            <br>
+        </form>
+        <form method="POST" class="right">
+            <center>
+            {% if error2 %}
+            <h2> {{error2}} </h2>
+            {% endif %}
+            <h2> New User </h2>
+            </center>
+            Username:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="newUser" class="box">
+            <br>
+            New Password:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="newPass" class="box">
+            <br>
+            Confirm Password: <input type="password" name="newPassC" class="box">
+            <br><br>
+            <center>
+            <input type="submit" class="button" name="button" value="Create Account">
+            </center>
+        </form>
+
         {% else %}
-            <nav>
-                <a href='/newStory'>Submit New Story</a>
-                <a href='/stories'>All Stories</a>
-                <a href='/logout'>Logout</a>
-		Hello {{session['n']}}
-            </nav>
-    	<center>
-    		<h1>Welcome</h1>
-  		{% endif %}
-  	</center>
+        <nav>
+            <a href='/newStory'>Submit New Story | </a>
+            <a href='/stories'>All Stories | </a>
+            <a href='/logout'>Logout</a>
+        </nav>
+        <center><font color="white">
+            <h1>Welcome {{session['n']}}</h1>
+            {% endif %}
+        </center>
     </body>
 </html> 

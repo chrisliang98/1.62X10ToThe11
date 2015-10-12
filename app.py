@@ -4,24 +4,25 @@ import module
 
 app = Flask(__name__)
 
-@app.route('/login', methods=['GET','POST'])
-def login():
+@app.route("/home",methods=['GET','POST'])
+@app.route("/home/",methods=['GET','POST'])
+@app.route("/",methods=['GET','POST'])
+def home():
     if request.method=="GET":
-        return render_template("login.html")
+        return render_template("home.html")
     else:
         #login form submission
 	button = request.form['button']
         #uname = request.form['username']
 	#pword = request.form['password']
-        #cancel back to home page (can't see anything since no logged in)
-    	if button == "Cancel":
-            return redirect(url_for('home'))
     	#if credentials valid, log them in with session
         if button == "create":
             newUser = request.form['newUser']
             newPass = request.form['newPass']
-            module.newUser(newUser,newPass)
-            return redirect(url_for('home'))
+            newPassC = request.form['newPassC']
+            if (newPass == newPassC):
+                module.newUser(newUser,newPass)
+                return redirect(url_for('home'))
         if button == "Login":
             uname = request.form['username']
             pword = request.form['password']
@@ -31,21 +32,15 @@ def login():
                     return redirect(url_for('home'))
                     #else renders login w/ error message
             else:
-                    return render_template("login.html",error="Invalid Username or Password")
+                    return render_template("home.html",error="Invalid Username or Password")
 
 
 @app.route('/logout', methods=['GET','POST'])
 def logoff():
     #remove the username from the session if it's there
     session.pop('n', None)
-    return redirect(url_for('login'))
+    return redirect(url_for('home'))
 
-
-@app.route("/home")
-@app.route("/home/")
-@app.route("/")
-def home():
-    return render_template("home.html")
 
 
 @app.route("/newStory", methods=['GET','POST'])
@@ -60,6 +55,8 @@ def nStory():
         if button=="Submit":
             module.makePost(username, title, line)
             return redirect('/story/%s' %title)
+        if button=="Cancel":
+            return redirect(url_for('home'))
         else:
             return render_template("new.html")
         return render_template("new.html")
