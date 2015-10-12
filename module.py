@@ -68,7 +68,3 @@ def addToPost(title, content):
     conn.commit()
     return True;
     #adds content to content of original post and returns a boolean representing wether or not the operation was successful
-#makePost("jion","stuff","stuff")
-#print encrypt("Jion","password");
-print newUser("jion","Password")
-print authenticate("Jion","Password")
