@@ -19,7 +19,7 @@ Jion Fairchild - Backend
 3. Interact  
 
 Note: Must have flask and sqlite3 installed  
-flaks: http://flask.pocoo.org/docs/0.10/installation/  
+flask: http://flask.pocoo.org/docs/0.10/installation/  
 sqlite3: https://www.sqlite.org/download.html 
 
 ###Task List
