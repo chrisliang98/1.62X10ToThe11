@@ -12,14 +12,14 @@ Javis Wu - Middleware
 Jion Fairchild - Backend  
 
 ###Task List
-- [ ] Write a New Story
+- [x] 10/11/2015 Write a New Story
 
   - [x] 10/09/2015 Login with 1 hardcoded user 
   - [x] 10/11/2015 new.html has a form for submitting a new story
     - name: content, title
     - should have max characters
 
-  - [ ] app.py gives info to util.py
+  - [x] app.py gives info to util.py
     - use module.makePost()
     - variables: username, title, contents
 
@@ -46,16 +46,14 @@ Jion Fairchild - Backend
   - [x] 10/11/2015 module.py gets the content from the database with the title
     - call it getPost()
 
-- [ ] Have multiple stories
+- [x] 10/11/2015 Have multiple stories
   - [x] 10/11/2015 home.html has a list of all the stories 
 
-  - [ ] app.py formats the titles of all the posts and gives it to table as post
+  - [x] app.py formats the titles of all the posts and gives it to table as post
     - for item in getAllPosts():
       <a href='story/"%s"'> "%s" </a> %item[1]
 
-  - [ ]
-
-- [ ] Have multiple users
-- [ ] User registration
+- [x] 10/11/2015 Have multiple users
+- [x] 10/11/2015 User registration
 - [ ] Delete story
 - [ ] Delete line

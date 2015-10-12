@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, session, redirect, url_for, g
+from flask import Flask, render_template, request, session, redirect, url_for, Markup
 import sqlite3
 import module
 
@@ -72,7 +72,17 @@ def story(title=""):
 
 @app.route("/stories")
 def stories():
-    return render_template("stories.html", stories=module.getAllPosts()) 
+
+    str=""
+    stories=module.getAllPosts()
+    for item in stories:
+        str+="<h1> <a href='story/%s'> %s</a> </h1>" %(item[1], item[1])
+        str+="<h2> %s </h2>" %item[0]
+        str+="<h3> %s </h3>" %item[2] + "<hr>"
+        
+    str= Markup(str)
+
+    return render_template("stories.html", link=str) 
 
 
 if __name__ == "__main__":
