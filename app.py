@@ -76,7 +76,7 @@ def stories():
     stories=module.getAllPosts()
     for item in stories:
         str+="<h1> <a href='story/%s'> %s</a> </h1>" %(item[1], item[1])
-        str+="<h2> %s </h2>" %item[0]
+        str+="<h2> Posted by: %s </h2>" %item[0]
         str+="<h3> %s </h3>" %item[2] + "<hr>"
         
     str= Markup(str)
