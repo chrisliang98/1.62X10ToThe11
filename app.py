@@ -16,13 +16,15 @@ def home():
         #uname = request.form['username']
 	#pword = request.form['password']
     	#if credentials valid, log them in with session
-        if button == "create":
+        if button == "Create Account":
             newUser = request.form['newUser']
             newPass = request.form['newPass']
             newPassC = request.form['newPassC']
             if (newPass == newPassC):
                 module.newUser(newUser,newPass)
-                return redirect(url_for('home'))
+                return render_template('home.html',success="Account created!")
+            else:
+                return render_template('home.html',error2="Passwords do not match!")
         if button == "Login":
             uname = request.form['username']
             pword = request.form['password']

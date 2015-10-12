@@ -3,6 +3,52 @@ title {
 
 body {
     background: #999999;
+    font-family:"Trebuchet MS", Helvetica, sans-serif;
+
+}
+
+.home {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-image: url('/static/back.jpg');
+}
+
+.box {
+    width:100px;
+    border-radius:2px;
+}
+
+.right {
+    color:white;
+    position:fixed;
+    bottom:3%;
+    left: 79%;
+}
+
+.left {
+    color:white;
+    position:fixed;
+    bottom:4%;
+    right:81%;
+}
+
+.error1{
+    position:fixed;
+    bottom: 1%;
+    right: 80%;
+}
+
+.error2{
+    position:fixed;
+    bottom: 0;
+    left: 82%;
+}
+
+.success{
+    position:fixed;
+    bottom: 0;
+    left: 82%;
 }
 
 ul li {
@@ -22,8 +68,7 @@ ul li input {
     background-color: #96DBF2;
 }
 
-h1 {
-
+a {
+    text-decoration:none;
 }
-
 
