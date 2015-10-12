@@ -64,9 +64,14 @@ def nStory():
         return render_template("new.html")
 
 
-@app.route("/story/<title>")
+@app.route("/story/<title>",methods=['GET','POST'])
 def story(title=""):
-    return render_template("story.html", title=title, line=module.getPost(title))
+    if request.method=="GET":
+        return render_template("story.html", title=title, line=module.getPost(title))
+    else:
+        newLine = request.form['newLine']
+        module.addToPost(title," " + newLine)
+        return render_template("story.html", title=title, line=module.getPost(title)) 
 
 
 @app.route("/stories")
