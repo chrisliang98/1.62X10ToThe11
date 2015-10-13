@@ -14,8 +14,8 @@ Javis Wu - Middleware
 Jion Fairchild - Backend  
 
 ###Instructions
-1.Open terminal 
-2.
+1. Open terminal 
+2. 
 '''
  $python app.py
 '''
