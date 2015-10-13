@@ -72,6 +72,17 @@ button {
     border-radius: 5px;
     font-size: 18;
     background-color: #96DBF2;*/
+} 
+
+button:focus,
+button:hover,
+button:active {
+  background: #fff;
+  color: #000;
+  transition: all 0.5s ease-in;
+}
+
+.navbar button {
     display: inline-block;
     box-sizing: border-box;
     margin: 0 auto;
@@ -88,16 +99,14 @@ button {
     transition: all 0.3s ease-out;
 }
 
-button:focus,
-button:hover,
-button:active {
+.navbar button:focus,
+.navbar button:hover,
+.navbar button:active {
   background: #fff;
   color: #000;
   transition: all 0.5s ease-in;
 }
 
-nav {
-}
 
 a {
     text-decoration:none;
