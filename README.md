@@ -14,8 +14,8 @@ Javis Wu - Middleware
 Jion Fairchild - Backend  
 
 ###Instructions
-1. Open terminal 
-2. 
+1. Open terminal and cd into 1.62X10ToThe11
+2. Run app.py:
 ```
  $python app.py
 ```
