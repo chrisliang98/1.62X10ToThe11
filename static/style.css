@@ -82,7 +82,7 @@ button:active {
   transition: all 0.5s ease-in;
 }
 
-.navbar button {
+.navbar {
     display: inline-block;
     box-sizing: border-box;
     margin: 0 auto;
@@ -99,9 +99,9 @@ button:active {
     transition: all 0.3s ease-out;
 }
 
-.navbar button:focus,
-.navbar button:hover,
-.navbar button:active {
+.navbar:focus,
+.navbar:hover,
+.navbar:active {
   background: #fff;
   color: #000;
   transition: all 0.5s ease-in;

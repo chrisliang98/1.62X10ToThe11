@@ -55,3 +55,4 @@ sqlite3: https://www.sqlite.org/download.html
 - [x] 10/13/2015 Database input sanitizing
 - [ ] Password changing option
 - [ ] Limiting continuous user input on the same story
+- [ ] Random story option
