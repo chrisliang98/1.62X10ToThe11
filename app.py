@@ -21,8 +21,10 @@ def home():
             newPass = request.form['newPass']
             newPassC = request.form['newPassC']
             if (newPass == newPassC):
-                module.newUser(newUser,newPass)
-                return render_template('home.html',success="Account created!")
+                if  module.newUser(newUser,newPass):
+                    return render_template('home.html',success="Account created!")
+                else:
+                    return render_template('home.html',error2="Username taken")            
             else:
                 return render_template('home.html',error2="Passwords do not match!")
         if button == "Login":
