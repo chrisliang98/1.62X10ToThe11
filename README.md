@@ -23,7 +23,7 @@ flask: http://flask.pocoo.org/docs/0.10/installation/
 sqlite3: https://www.sqlite.org/download.html 
 
 ###Task List
-- [ ] (ongoing) Improving the aesthetics
+- [ ] \(ongoing\) Improving the aesthetics
 - [x] 10/11/2015 Write a New Story
 
   - [x] Login with 1 hardcoded user 
