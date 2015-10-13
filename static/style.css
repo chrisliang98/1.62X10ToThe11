@@ -4,7 +4,7 @@ title {
 body {
     background: #222222;
     font-family:"Trebuchet MS", Helvetica, sans-serif;
-    font-color:"white";
+    color:white;
 }
 
 .home {
@@ -67,16 +67,36 @@ ul li input {
     border-radius: 5px;
 }
 
-.button {
-    padding: 0,2px;
+button {
+    /*padding: 0,2px;
     border-radius: 5px;
     font-size: 18;
-    background-color: #96DBF2;
+    background-color: #96DBF2;*/
+    display: inline-block;
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: 8px 0px;
+    width: 80%;
+    max-width: 150px;
+    background: #fff; /* fallback color for old browsers */
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: all 0.3s ease-out;
 }
 
-/* stylize the nav buttons */
-button {
+button:focus,
+button:hover,
+button:active {
+  background: #fff;
+  color: #000;
+  transition: all 0.5s ease-in;
+}
 
+nav {
 }
 
 a {
