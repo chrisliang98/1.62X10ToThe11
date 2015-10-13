@@ -14,9 +14,13 @@ Javis Wu - Middleware
 Jion Fairchild - Backend  
 
 ###Instructions
-1. Run app.py
-2. Go to http://0.0.0.0:5000/
-3. Interact  
+1.Open terminal 
+2.
+'''
+ $python app.py
+'''
+3. Go to http://0.0.0.0:5000/ or http://localhost:5000/
+4. Interact  
 
 Note: Must have flask and sqlite3 installed  
 flask: http://flask.pocoo.org/docs/0.10/installation/  
@@ -54,4 +58,4 @@ sqlite3: https://www.sqlite.org/download.html
 - [x] 10/12/2015 Password encryption
 - [x] 10/13/2015 Database input sanitizing
 - [ ] Password changing option
-- [ ]
+- [ ] Limiting continuous user input on the same story
