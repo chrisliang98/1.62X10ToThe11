@@ -1,10 +1,17 @@
 import sqlite3
+import md5;
 
+def encrypt(username,password):
+    m = md5.new()
+    m.update(username+password)
+    return m.hexdigest()
+    #hashes and salts the pasword for permanent storage or retrieval
+    #returns hashed password
 
 def authenticate(username, password):
     conn = sqlite3.connect("myDataBase.db")
     c = conn.cursor()
-    ans = c.execute('select * from logins where username = "'+username+'" and password = "'+password+'";') 
+    ans = c.execute('select * from logins where username = "'+username+'" and password = "'+encrypt(username,password)+'";') 
     for r in ans:
         return True;
     return False;
@@ -13,7 +20,10 @@ def authenticate(username, password):
 def newUser(username,password):
     conn = sqlite3.connect("myDataBase.db")
     c = conn.cursor()
-    ans = c.execute('insert into logins values("'+username+'","'+password+'");')
+    ans = c.execute('select * from logins where username = "%s";' % username)
+    for r in ans:
+        return False
+    ans = c.execute('insert into logins values("'+username+'","'+encrypt(username,password)+'");')
     conn.commit()
     return True
 
@@ -58,4 +68,16 @@ def addToPost(title, content):
     conn.commit()
     return True;
     #adds content to content of original post and returns a boolean representing wether or not the operation was successful
-makePost("jion","stuff","stuff")
+
+def removePost(title):
+    conn = sqlite3.connect("myDataBase.db")
+    c = conn.cursor()
+        
+    c.execute('delete from posts where title="%s";' % title)
+    conn.commit()
+    return True;
+
+    #removes post with tile=title from database if it exists and username = admin
+    #returns false if operation failed
+
+newUser("Admin", "mangoMangoGrapes")
