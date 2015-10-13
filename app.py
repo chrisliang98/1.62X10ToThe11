@@ -66,13 +66,21 @@ def nStory():
 
 @app.route("/story/<title>",methods=['GET','POST'])
 def story(title=""):
-    if request.method=="GET":
-        return render_template("story.html", title=title, line=module.getPost(title))
+    delete=''
+    if session['n'] == "Admin":
+        delete = '<input type="submit" name="button" value="Delete Story">'
+        delete = Markup(delete)
+    if request.method == "GET":
+        return render_template("story.html", title=title, line=module.getPost(title), delete=delete)
     else:
         newLine = request.form['newLine']
-        module.addToPost(title," " + newLine)
-        return render_template("story.html", title=title, line=module.getPost(title)) 
-
+        button = request.form['button']
+        if button == "Add to Story":
+            module.addToPost(title," " + newLine)
+            return render_template("story.html", title=title, line=module.getPost(title), delete=delete) 
+        else:
+            module.removePost(title)
+            return redirect(url_for('stories'))
 
 @app.route("/stories")
 def stories():
