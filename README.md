@@ -16,9 +16,9 @@ Jion Fairchild - Backend
 ###Instructions
 1. Open terminal 
 2. 
-'''
+```
  $python app.py
-'''
+```
 3. Go to http://0.0.0.0:5000/ or http://localhost:5000/
 4. Interact  
 
