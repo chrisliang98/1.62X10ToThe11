@@ -4,9 +4,11 @@
         <title>{{title}}</title>
         <link rel="stylesheet" type="text/css" href="/static/style.css">
     </header>
+    {% if 'n' in session %}
     <nav> 
       <center>
-	    <button onclick="location.href='/'" class="navbar">Home</button>
+	<button onclick="location.href='/'" class="navbar">Home</button>
+	<button onclick="location.href='/newStory'" class="navbar">Submit New Story</button>
         <button onclick="location.href='/stories'" class="navbar">All Stories </button>
         <button onclick="location.href='/logout'" class="navbar">Logout</button>
       </center>
@@ -25,4 +27,13 @@
             </div>
         </center>
     </body>
+    {% else %}
+    <body>
+        <center>
+            <nav>
+	    <button onclick="location.href='/home'" class="navbar">Login</button>     
+            </nav>
+        </center>
+    </body>
+    {% endif %}
 </html>
