@@ -50,5 +50,5 @@ sqlite3: https://www.sqlite.org/download.html
 
 - [x] 10/11/2015 Have multiple users
 - [x] 10/11/2015 User registration
-- [ ] Delete story
-- [ ] Delete line
+- [x] 1/12/2015 DDelete story option for admin account
+- [x] 10/12/2015 Password encryption
