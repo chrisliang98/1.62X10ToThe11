@@ -1,5 +1,8 @@
 import sqlite3
 import md5;
+import re;
+def sanitize(input):
+    return re.sub('"', "  ", input)
 
 def encrypt(username,password):
     m = md5.new()
@@ -9,6 +12,7 @@ def encrypt(username,password):
     #returns hashed password
 
 def authenticate(username, password):
+    username = sanitize(username)
     conn = sqlite3.connect("myDataBase.db")
     c = conn.cursor()
     ans = c.execute('select * from logins where username = "'+username+'" and password = "'+encrypt(username,password)+'";') 
@@ -18,6 +22,7 @@ def authenticate(username, password):
     #returns a boolean that describes whether the user has succesfully logged in.
 
 def newUser(username,password):
+    username = sanitize(username)
     conn = sqlite3.connect("myDataBase.db")
     c = conn.cursor()
     ans = c.execute('select * from logins where username = "%s";' % username)
@@ -28,6 +33,9 @@ def newUser(username,password):
     return True
 
 def makePost(username, title, contents):
+    username = sanitize(username)
+    title = sanitize(title)
+    contents = sanitize(contents)
     conn = sqlite3.connect("myDataBase.db")
     c = conn.cursor()
     ans = c.execute('select * from posts where title = "%s";' % title)
@@ -41,6 +49,7 @@ def makePost(username, title, contents):
     #operation will be unsuccessful if a post with the same title already exists
 
 def getPost(title):
+    title = sanitize(title)
     conn = sqlite3.connect("myDataBase.db")
     c = conn.cursor()
     ans = c.execute('select * from posts where title ="%s";' % title) 
@@ -61,6 +70,8 @@ def getAllPosts():
 
 
 def addToPost(title, content):
+    title = sanitize(title)
+    content = sanitize(content)
     conn = sqlite3.connect("myDataBase.db")
     c = conn.cursor()
     newContent = " "+getPost(title)+content
@@ -70,7 +81,8 @@ def addToPost(title, content):
     #adds content to content of original post and returns a boolean representing wether or not the operation was successful
 
 def removePost(username,title):
-    if(username = admin):
+    title = sanitize(title)
+    if(username == "Admin"):
         conn = sqlite3.connect("myDataBase.db")
         c = conn.cursor()
         
@@ -80,4 +92,4 @@ def removePost(username,title):
     return False
     #removes post with tile=title from database if it exists and username = admin
     #returns false if operation failed
-newUser("Admin", "mangoMangoGrapes")
+
