@@ -88,7 +88,7 @@ def story(title=""):
                         newLine=newLine+"."
             button = request.form['button']
             if button == "Add to Story":
-                module.addToPost(title," " + newLine)
+                module.addToPost(session['n'],title," " + newLine)
                 return render_template("story.html", title=title, line=module.getPost(title), delete=delete) 
             else:
                 module.removePost(title)
