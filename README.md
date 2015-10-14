@@ -59,3 +59,4 @@ sqlite3: https://www.sqlite.org/download.html
 - [ ] Minimum password length
 - [ ] Prevent users from adding blank lines/stories
 - [ ] Error for adding to non-existant posts
+- [ ] Time stamps for original post and updates
