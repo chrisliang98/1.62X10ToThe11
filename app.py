@@ -22,6 +22,8 @@ def home():
             newPass = request.form['newPass']
             newPassC = request.form['newPassC']
             if (newPass == newPassC):
+                if len(newPass)<4:
+                    return render_template('home.html',error2="Password must be longer than 4 characters")
                 if  module.newUser(newUser,newPass):
                     return render_template('home.html',success="Account created!")
                 else:
