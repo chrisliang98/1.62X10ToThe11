@@ -80,7 +80,7 @@ def story(title=""):
             delete = '<input type="submit" name="button" value="Delete Story">'
             delete = Markup(delete)
         if request.method == "GET":
-            return render_template("story.html", title=title, line=module.getPost(title), delete=delete)
+            return render_template("story.html", title=title, poster=module.getPoster(title),line=module.getPost(title), delete=delete)
         else:
             newLine = request.form['newLine']
             if len(newLine)>0:
@@ -90,8 +90,10 @@ def story(title=""):
                             newLine=newLine+"."
             button = request.form['button']
             if button == "Add to Story":
-                module.addToPost(session['n'],title," " + newLine)
-                return render_template("story.html", title=title, line=module.getPost(title), delete=delete) 
+                if(module.addToPost(session['n'],title," " + newLine)):
+                    return render_template("story.html", title=title, poster=module.getPoster(title),line=module.getPost(title), delete=delete) 
+                else:
+                    return render_template("story.html",title=title,poster=module.getPoster(title), line=module.getPost(title),delete=delete,error="You cannot write two sentences in a row!")
             else:
                 module.removePost(title)
                 return redirect(url_for('stories'))

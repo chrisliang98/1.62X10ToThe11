@@ -17,14 +17,15 @@
         <center>
             <div class='story'>
                 <h1> {{title}} </h1>
+                <h3> Posted by: {{poster}} </h3><br>
                 <h2> {{line}} </h2>
                 <form method="POST" class="bottom">
                     <input type="text" name="newLine" maxlength="100"> 
                     <br><br>
                     <input type="submit" name="button" value="Add to Story">
-                    {{delete}}
                 </form>
             </div>
+            <p><font color="red">{{error}}</font>
         </center>
     </body>
     {% else %}
