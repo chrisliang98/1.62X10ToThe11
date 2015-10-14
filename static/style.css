@@ -152,3 +152,12 @@ input {
     text-align: center;
 }
 
+#inputspace {
+    position:relative;
+    top:5px;
+}
+
+#inputspace2 {
+    position:relative;
+    top:10px;
+}
