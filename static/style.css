@@ -89,9 +89,9 @@ button {
     background-color: #96DBF2;*/
 } 
 
-button:focus,
-button:hover,
-button:active {
+.button:focus,
+.button:hover,
+.button:active { 
   background: #fff;
   color: #000;
   transition: all 0.5s ease-in;
@@ -112,26 +112,12 @@ button:active {
 
 .navbar:hover,
 .navbar:active,
-.centerButton:hover,
-.centerButton:active,
 input[type="submit"]:hover,
-input[type="submit"]:active{
+input[type="submit"]:active {
     background: #fff;
     color: #000;
     transition: all 0.5s ease-in;
 }
-
-.centerButton {
-    font-size:150%;
-    display: inline-block;
-    width: 10%;
-    border-radius:5px;
-    padding: 15px 6px;
-    background-color: Transparent;
-    color: #fff;
-    border: 1px solid #fff;
-    text-align: center;
-    outline: none;
 
 .center {
     position:relative;
@@ -157,7 +143,6 @@ a {
 }
 
 input {
-    
     display: inline-block;
     padding: 8px;
     border-radius:5px;
@@ -165,6 +150,5 @@ input {
     color: #fff;
     border: 1px solid #fff;
     text-align: center;
-
 }
 
