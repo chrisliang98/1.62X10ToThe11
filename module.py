@@ -41,7 +41,7 @@ def makePost(username, title, contents):
     ans = c.execute('select * from posts where title = "%s";' % title)
     for r in ans:
         return False;
-    ans = c.execute('insert into posts values("%s","%s","%s","%s);' % (username, title, contents, username))
+    ans = c.execute('insert into posts values("%s","%s","%s","%s");' % (username, title, contents, username))
     conn.commit()
     return True;
     #adds a post to the databes from username with title = title and contents = contents
@@ -69,13 +69,17 @@ def getAllPosts():
     #the 2 index stores the contents of the post.
     #the 3 index stores the last user to add to a post
 
-def addToPost(title, content):
+def addToPost(username,title, content):
     title = sanitize(title)
     content = sanitize(content)
     conn = sqlite3.connect("myDataBase.db")
     c = conn.cursor()
     newContent = " "+getPost(title)+content
+    ans = c.execute('select * from posts where lastPoster="%s" and title = "%s";' % (username, title))
+    for r in ans:
+        return False
     c.execute('update posts set contents = "%s" where title="%s";'% (newContent,title))
+    c.execute('update posts set lastPoster = "%s" where title="%s";' % (username, title))
     conn.commit()
     return True;
     #adds content to content of original post and returns a boolean representing wether or not the operation was successful
@@ -90,3 +94,9 @@ def removePost(title):
 
     #removes post with tile=title from database if it exists and username = admin
     #returns false if operation failed
+
+makePost("Jion","This is a story","THIS IS THE FIRST SENTENCE");
+print addToPost("Jion","This is a story","THIS IS THE NEXT LINE");
+print addToPost("Admin","This is a story","THIS IS THE NEXT LINE");
+print addToPost("Admin","This is a story","THIS IS THE NEXT LINE");
+print addToPost("Jion","This is a story","THIS IS THE NEXT LINE");
