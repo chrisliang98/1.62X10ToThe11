@@ -95,8 +95,3 @@ def removePost(title):
     #removes post with tile=title from database if it exists and username = admin
     #returns false if operation failed
 
-makePost("Jion","This is a story","THIS IS THE FIRST SENTENCE");
-print addToPost("Jion","This is a story","THIS IS THE NEXT LINE");
-print addToPost("Admin","This is a story","THIS IS THE NEXT LINE");
-print addToPost("Admin","This is a story","THIS IS THE NEXT LINE");
-print addToPost("Jion","This is a story","THIS IS THE NEXT LINE");
