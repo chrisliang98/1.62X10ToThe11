@@ -163,3 +163,10 @@ input {
     top:1%;
 }
 
+a:link {    
+    color: #DED8E2;
+}
+
+a:visited {
+    color:#BAB5BD;
+}

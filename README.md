@@ -58,3 +58,4 @@ sqlite3: https://www.sqlite.org/download.html
 - [ ] Random story option
 - [ ] Minimum password length
 - [ ] Prevent users from adding blank lines/stories
+- [ ] Erroe for adding to non-existant posts
