@@ -164,9 +164,13 @@ input {
 }
 
 a:link {    
-    color: #DED8E2;
+    color:#969299;
 }
 
 a:visited {
-    color:#BAB5BD;
+    color: #FFFFFF;
+}
+
+a:hover {
+    color:#C3BEC7;
 }
