@@ -97,6 +97,19 @@ button {
   transition: all 0.5s ease-in;
 }
 
+.homeNav {
+    display: inline-block;
+    width:10%;
+    margin:20px;
+    padding: 8px;
+    border-radius:5px;
+    background-color: Transparent;
+    color: #fff;
+    border: 1px solid #fff;
+    outline: none;
+    text-decoration: none;
+}
+
 .navbar {
     display: inline-block;
     width:10%;
