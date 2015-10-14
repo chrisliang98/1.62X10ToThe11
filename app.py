@@ -57,10 +57,11 @@ def nStory():
         button=request.form['button']
         title=request.form['sTitle']
         line=request.form['entry']
-        if line[-1] != ".":
-            if line[-1] != "?":
-                if line[-1] != "!":
-                    line=line+"."
+        if len(line)>0:
+            if line[-1] != ".":
+                if line[-1] != "?":
+                    if line[-1] != "!":
+                        line=line+"."
         if button=="Submit":
             module.makePost(username, title, line)
             return redirect('/story/%s' %title)
@@ -82,10 +83,11 @@ def story(title=""):
             return render_template("story.html", title=title, line=module.getPost(title), delete=delete)
         else:
             newLine = request.form['newLine']
-            if newLine[-1] != ".":
-                if newLine[-1] !="?":
-                    if newLine[-1] !="!":
-                        newLine=newLine+"."
+            if len(newLine)>0:
+                if newLine[-1] != ".":
+                    if newLine[-1] !="?":
+                        if newLine[-1] !="!":
+                            newLine=newLine+"."
             button = request.form['button']
             if button == "Add to Story":
                 module.addToPost(session['n'],title," " + newLine)
