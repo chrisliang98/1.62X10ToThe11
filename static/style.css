@@ -1,17 +1,17 @@
-title {
-}
-
 body {
-    background: #222222;
     font-family:"Trebuchet MS", Helvetica, sans-serif;
-
+    color:white;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-image: url('/static/back.jpg');
 }
 
 .home {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
-    background-image: url('/static/back.jpg');
+    background-image: url('/static/homeback.jpg');
 }
 
 .bottom {
@@ -25,36 +25,51 @@ body {
     border-radius:2px;
 }
 
-.right {
+
+.rightT {
     color:white;
     position:fixed;
-    bottom:3%;
-    left: 79%;
+    top: 40%;
+    right: 20%;
 }
 
-.left {
+.rightI {
     color:white;
     position:fixed;
-    bottom:4%;
-    right:81%;
+    top: 48.5%;
+    right: 12%;
 }
 
-.error1{
-    position:fixed;
-    bottom: 1%;
-    right: 80%;
+#title, 
+#button {
+    position:relative;
+    left: 50%;
 }
 
-.error2{
+.leftT {
+    color:white;
     position:fixed;
-    bottom: 0;
-    left: 82%;
+    top:40%;
+    left: 12%;
 }
 
-.success{
+.leftI {
+    color:white;
     position:fixed;
-    bottom: 0;
-    left: 82%;
+    top:48.5%;
+    left: 18%;
+}
+
+.errorL {
+    position:fixed;
+    top:68%;
+    left:10.5%;
+}
+
+.errorR {
+    position:fixed;
+    top:70%;
+    right:13.5%;
 }
 
 ul li {
@@ -67,26 +82,82 @@ ul li input {
     border-radius: 5px;
 }
 
-.button {
-    padding: 0,2px;
+button {
+    /*padding: 0,2px;
     border-radius: 5px;
     font-size: 18;
-    background-color: #96DBF2;
+    background-color: #96DBF2;*/
+} 
+
+.button:focus,
+.button:hover,
+.button:active { 
+  background: #fff;
+  color: #000;
+  transition: all 0.5s ease-in;
 }
 
-/* stylize the nav buttons */
-button {
+.navbar {
+    display: inline-block;
+    width: 10%;
+    padding: 8px;
+    border-radius:5px;
+    background-color: Transparent;
+    color: #fff;
+    border: 1px solid #fff;
+    text-align: center;
+    outline: none;
+    text-decoration: none;
+}
 
+.navbar:hover,
+.navbar:active,
+input[type="submit"]:hover,
+input[type="submit"]:active {
+    background: #fff;
+    color: #000;
+    transition: all 0.5s ease-in;
+}
+
+.center {
+    position:relative;
+    top:50%;
+    left:44%;
 }
 
 a {
     text-decoration:none;
 }
-
 .stories {
-    margin-bottom:100px;
+    margin-bottom:0;
     margin-right:25%;
     margin-left:25%;
     color:white;
 }
 
+.story {
+    margin-bottom:35%;
+    margin-right:25%;
+    margin-left:25%;
+    color:white;
+}
+
+input {
+    display: inline-block;
+    padding: 8px;
+    border-radius:5px;
+    background-color: Transparent;
+    color: #fff;
+    border: 1px solid #fff;
+    text-align: center;
+}
+
+#inputspace {
+    position:relative;
+    top:1%;
+}
+
+#inputspace2 {
+    position:relative;
+    top:1%;
+}

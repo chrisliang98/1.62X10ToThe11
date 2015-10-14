@@ -15,7 +15,7 @@ Jion Fairchild - Backend
 
 ###Instructions
 1. Run app.py
-2. Go to http://0.0.0.0:5000/
+2. Go to http://0.0.0.0:5000/ or http://localhost:5000/
 3. Interact  
 
 Note: Must have flask and sqlite3 installed  
@@ -23,7 +23,7 @@ flask: http://flask.pocoo.org/docs/0.10/installation/
 sqlite3: https://www.sqlite.org/download.html 
 
 ###Task List
-- [ ] (ongoing) Improving the aesthetics
+- [ ] \(ongoing\) Improving the aesthetics
 - [x] 10/11/2015 Write a New Story
 
   - [x] Login with 1 hardcoded user 
@@ -50,5 +50,10 @@ sqlite3: https://www.sqlite.org/download.html
 
 - [x] 10/11/2015 Have multiple users
 - [x] 10/11/2015 User registration
-- [x] 1/12/2015 DDelete story option for admin account
+- [x] 10/12/2015 Delete story option for admin account
 - [x] 10/12/2015 Password encryption
+- [x] 10/13/2015 Database input sanitizing
+- [ ] Password changing option
+- [ ] Limiting continuous user input on the same story
+- [ ] Random story option
+- [ ] Minimum password length

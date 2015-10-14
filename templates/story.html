@@ -6,23 +6,23 @@
     </header>
     {% if 'n' in session %}
     <nav> 
-      <center>
-	<button onclick="location.href='/'" class="navbar">Home</button>
-	<button onclick="location.href='/newStory'" class="navbar">Submit New Story</button>
-        <button onclick="location.href='/stories'" class="navbar">All Stories </button>
-        <button onclick="location.href='/logout'" class="navbar">Logout</button>
-      </center>
+        <center>
+            <button onclick="location.href='/'" class="navbar">Home</button>
+            <button onclick="location.href='/newStory'" class="navbar">Submit New Story</button>
+            <button onclick="location.href='/stories'" class="navbar">All Stories </button>
+            <button onclick="location.href='/logout'" class="navbar">Logout</button>
+        </center>
     </nav>
     <body>
         <center>
-            <div class='stories'>
+            <div class='story'>
                 <h1> {{title}} </h1>
                 <h2> {{line}} </h2>
                 <form method="POST" class="bottom">
-	                <input type="text" name="newLine" maxlength="100"> 
-                    <br>
+                    <input type="text" name="newLine" maxlength="100"> 
+                    <br><br>
                     <input type="submit" name="button" value="Add to Story">
-		    {{delete}}
+                    {{delete}}
                 </form>
             </div>
         </center>
@@ -31,7 +31,7 @@
     <body>
         <center>
             <nav>
-	    <button onclick="location.href='/home'" class="navbar">Login</button>     
+                <button onclick="location.href='/home'" class="navbar">Login</button>     
             </nav>
         </center>
     </body>

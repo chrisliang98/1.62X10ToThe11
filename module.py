@@ -80,18 +80,10 @@ def addToPost(title, content):
     return True;
     #adds content to content of original post and returns a boolean representing wether or not the operation was successful
 
-<<<<<<< HEAD
-def removePost(username,title):
-    title = sanitize(title)
-    if(username == "Admin"):
-        conn = sqlite3.connect("myDataBase.db")
-        c = conn.cursor()
-=======
 def removePost(title):
+    title = sanitize(title)
     conn = sqlite3.connect("myDataBase.db")
     c = conn.cursor()
->>>>>>> 98b903c541ae9eb4ec2fe67934d217e64b2e108c
-        
     c.execute('delete from posts where title="%s";' % title)
     conn.commit()
     return True;
