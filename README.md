@@ -57,3 +57,4 @@ sqlite3: https://www.sqlite.org/download.html
 - [ ] Limiting continuous user input on the same story
 - [ ] Random story option
 - [ ] Minimum password length
+- [ ] Prevent users from adding blank lines/stories
