@@ -5,56 +5,62 @@
         <link rel="stylesheet" type="text/css" href="/static/style.css">
     </header>
     <body class="home">
-
-        {% if not 'n' in session %}
-        <form method="POST" class="left">
-            <center>
-            <h2>Log In</h2>
-            </center>
-            Username: <input type="text" name="username" class="box">
-            <br>
-            Password:&nbsp; <input type="password" name="password" class="box">
-            <br>
-            <center>
-            <input type="submit" class="button" name="button" value="Login">
-            </center>
-            <br>
-        </form>
-            {% if error %}
-            <p class="error1"><font color="red">{{error}}</font> 
-            {% endif %}
-            {% if success %}
-            <p class="success"><font color="green">{{success}}</font>
-            {% endif %}
-        <form method="POST" class="right">
-            <center>
-            <h2> New User </h2>
-            </center>
-            Username:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="newUser" class="box">
-            <br>
-            New Password:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="password" name="newPass" class="box">
-            <br>
-            Confirm Password: <input type="password" name="newPassC" class="box">
-            <br>
-            <center>
-            <input type="submit" class="button" name="button" value="Create Account">
-            </center>
-        </form>
-            {% if error2 %}
-            <p class="error2"><font color="red"> {{error2}} </font>
-            {% endif %}
-        {% else %}
+        {% if 'n' in session %}
         <nav>
-	  <center>
-	    <button onclick="location.href='/'" class="navbar">Home</button>
-            <button onclick="location.href='newStory'" class="navbar">Submit New Story</button>
-            <button onclick="location.href='/stories'" class="navbar">All Stories </button>
-            <button onclick="location.href='/logout'" class="navbar">Logout</button>
-	  </center>
+            <center>
+                <button onclick="location.href='/'" class="navbar">Home</button>
+                <button onclick="location.href='newStory'" class="navbar">Submit New Story</button>
+                <button onclick="location.href='/stories'" class="navbar">All Stories </button>
+                <button onclick="location.href='/logout'" class="navbar">Logout</button>
+            </center>
         </nav>
         <center><font color="white">
-            <h1>Welcome {{session['n']}}</h1>
-            {% endif %}
+                <h1>Welcome {{session['n']}}</h1>
+                {% else %}
+                <div class="leftT">
+                    <center>
+                        <h2 id="title">Log In</h2>
+                        Username<br><br>
+                        Password<br><br>
+                        <form method="POST">
+                            <input id="button" type="submit" class="button" name="button" value="Login">
+                            <div class="leftI">
+                                <input type="text" name="username" class="box"><br>
+                                <input type="password" name="password" class="box">
+                            </div>
+                        </form>
+                    </center>
+                </div>
+                <div class="rightT">
+                    <center>
+                        <h2 id="title"> New User </h2>
+                        Username<br><br>
+                        New Password<br><br>
+                        Confirm Password<br><br>
+                        <form method="POST">
+                            <input id="button" type="submit" class="button" name="button" value="Create Account">
+                            <div class="rightI">
+                                <input type="text" name="newUser" class="box"><br>
+                                <input type="password" name="newPass" class="box"><br>
+                                <input type="password" name="newPassC" class="box"><br><br>
+                            </div>
+                        </form>
+                        {% endif %}
+                    </center>
+                </div>
+                        {% if error %}
+                        <div class="errorL">
+                            <font color="red">{{error}}</font> 
+                        </div>
+                        {% endif %}
+                        <div class="errorR">
+                        {% if success %}
+                        <p><font color="green">{{success}}</font></p>
+                        {% endif %}
+                        {% if error2 %}
+                        <p><font color="red"> {{error2}} </font></p>
+                        {% endif %}
+                        </div>
         </center>
     </body>
 </html> 
