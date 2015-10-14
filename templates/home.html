@@ -4,19 +4,22 @@
         <title>Home</title>
         <link rel="stylesheet" type="text/css" href="/static/style.css">
     </header>
-    <body class="home">
-        {% if 'n' in session %}
-        <nav>
-            <center>
-                <button onclick="location.href='/'" class="navbar">Home</button>
-                <button onclick="location.href='newStory'" class="navbar">Submit New Story</button>
-                <button onclick="location.href='/stories'" class="navbar">All Stories </button>
-                <button onclick="location.href='/logout'" class="navbar">Logout</button>
-            </center>
-        </nav>
-        <center><font color="white">
+    {% if 'n' in session %}
+    <body>
+        <center>
+            <font color="white"><br><br><br>
                 <h1>Welcome {{session['n']}}</h1>
+            </font>
+            <nav>
+            <span class="center"><font size="40">
+                <button onclick="location.href='/'" class="navbar">Home</button><br>
+                <button id="inputspace" onclick="location.href='newStory'" class="navbar">Submit New Story</button><br>
+                <button id="inputspace" onclick="location.href='/stories'" class="navbar">All Stories </button><br>
+                <button id="inputspace" onclick="location.href='/logout'" class="navbar">Logout</button>
+            </font></span>
+        </nav>
                 {% else %}
+                <body class="home">
                 <div class="leftT">
                     <center>
                         <h2 id="title">Log In</h2>
@@ -48,19 +51,19 @@
                         {% endif %}
                     </center>
                 </div>
-                        {% if error %}
-                        <div class="errorL">
-                            <font color="red">{{error}}</font> 
-                        </div>
-                        {% endif %}
-                        <div class="errorR">
-                        {% if success %}
-                        <p><font color="green">{{success}}</font></p>
-                        {% endif %}
-                        {% if error2 %}
-                        <p><font color="red"> {{error2}} </font></p>
-                        {% endif %}
-                        </div>
+                {% if error %}
+                <div class="errorL">
+                    <font color="red">{{error}}</font> 
+                </div>
+                {% endif %}
+                <div class="errorR">
+                    {% if success %}
+                    <p><font color="green">{{success}}</font></p>
+                    {% endif %}
+                    {% if error2 %}
+                    <p><font color="red"> {{error2}} </font></p>
+                    {% endif %}
+                </div>
         </center>
     </body>
 </html> 

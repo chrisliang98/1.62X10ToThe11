@@ -99,13 +99,12 @@ button {
 
 .navbar {
     display: inline-block;
-    width: 10%;
+    width:10%;
     padding: 8px;
     border-radius:5px;
     background-color: Transparent;
     color: #fff;
     border: 1px solid #fff;
-    text-align: center;
     outline: none;
     text-decoration: none;
 }
@@ -120,9 +119,11 @@ input[type="submit"]:active {
 }
 
 .center {
-    position:relative;
-    top:50%;
-    left:44%;
+    position:absolute;
+    top:35%;
+    left:3%;
+    width:93%;
+    padding:10px;
 }
 
 a {
@@ -161,3 +162,4 @@ input {
     position:relative;
     top:1%;
 }
+
