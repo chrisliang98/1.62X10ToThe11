@@ -41,7 +41,7 @@ def makePost(username, title, contents):
     ans = c.execute('select * from posts where title = "%s";' % title)
     for r in ans:
         return False;
-    ans = c.execute('insert into posts values("'+username+'","'+title+'","'+contents+'");')
+    ans = c.execute('insert into posts values("%s","%s","%s","%s);' % (username, title, contents, username))
     conn.commit()
     return True;
     #adds a post to the databes from username with title = title and contents = contents
@@ -67,7 +67,7 @@ def getAllPosts():
     #the 0 index store sthe name of the original poster
     #the 1 index represents the title of the post
     #the 2 index stores the contents of the post.
-
+    #the 3 index stores the last user to add to a post
 
 def addToPost(title, content):
     title = sanitize(title)
@@ -98,8 +98,3 @@ def removePost(title):
 
     #removes post with tile=title from database if it exists and username = admin
     #returns false if operation failed
-
-<<<<<<< HEAD
-=======
-newUser("Admin", "mangoMangoGrapes")
->>>>>>> 98b903c541ae9eb4ec2fe67934d217e64b2e108c
