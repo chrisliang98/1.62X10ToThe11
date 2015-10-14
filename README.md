@@ -59,4 +59,8 @@ sqlite3: https://www.sqlite.org/download.html
 - [x] Minimum password length
 - [ ] Prevent users from adding blank lines/stories
 - [ ] Error for adding to non-existant posts
+<<<<<<< HEAD
 - [ ] Have a cover for the stories: picture links
+=======
+- [ ] Time stamps for original post and updates
+>>>>>>> da49f3154a70378fb8b24374b86b69830e016474
