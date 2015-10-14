@@ -89,6 +89,14 @@ button {
     background-color: #96DBF2;*/
 } 
 
+button:focus,
+button:hover,
+button:active {
+  background: #fff;
+  color: #000;
+  transition: all 0.5s ease-in;
+}
+
 .navbar {
     display: inline-block;
     width: 10%;
@@ -124,8 +132,6 @@ input[type="submit"]:active{
     border: 1px solid #fff;
     text-align: center;
     outline: none;
-
-}
 
 .center {
     position:relative;
