@@ -65,13 +65,20 @@ def nStory():
         button=request.form['button']
         title=request.form['sTitle']
         line=request.form['entry']
+        #valid input check
+        error=""
+        if len(title) == 0:
+            error+="Nothing submitted for title."
+        if len(line) == 0:
+            error+=" Nothing submitted for content."
+        if len(error) > 0:
+            return render_template("new.html", error=error)
         #add default period at end of submission
         #line=punctCheck(line)
-        if len(line)>0:
-            if line[-1] != ".":
-                if line[-1] !="?":
-                    if line[-1] !="!":
-                        return line+"."        
+        if line[-1] != ".":
+            if line[-1] !="?":
+                if line[-1] !="!":
+                    line+="."       
 #redirect to newly created story
         if button=="Submit":
             module.makePost(username, title, line)
@@ -81,7 +88,7 @@ def nStory():
             return redirect(url_for('home'))
         else:
             return render_template("new.html")
-        return render_template("new.html")
+
 
 
 @app.route("/story/<title>",methods=['GET','POST'])
@@ -96,16 +103,18 @@ def story(title=""):
             return render_template("story.html", title=title, poster=module.getPoster(title),line=module.getPost(title), delete=delete)
         else:
             newLine = request.form['newLine']
-            #puncuation check
-            if len(newLine)>0:
-                if newLine[-1] != ".":
-                    if newLine[-1] !="?":
-                        if newLine[-1] !="!":
-                            return newLine+"."
             #newLine = punctCheck(newLine)
             button = request.form['button']
             #add to story
             if button == "Add to Story":
+                if len(newLine) == 0:
+                    error="Nothing submitted for content"
+                    return render_template("story.html", title=title, poster=module.getPoster(title),line=module.getPost(title), delete=delete, error=error)
+            #puncuation check
+                if newLine[-1] != ".":
+                    if newLine[-1] !="?":
+                        if newLine[-1] !="!":
+                            newLine+="."                        
                 if(module.addToPost(session['n'],title," " + newLine)):
                     return render_template("story.html", title=title, poster=module.getPoster(title),line=module.getPost(title), delete=delete) 
                 #consecutive contribution error

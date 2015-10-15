@@ -57,7 +57,7 @@ sqlite3: https://www.sqlite.org/download.html
 - [x] 10/13/2015 Limiting continuous user input on the same story
 - [ ] Random story option
 - [x] 10/14/2015 Minimum password length
-- [ ] Prevent users from adding blank lines/stories
+- [x] Prevent users from adding blank lines/stories
 - [ ] Error for adding to non-existant posts
 - [ ] Have a cover for the stories: picture links
 - [ ] Time stamps for original post and updates
