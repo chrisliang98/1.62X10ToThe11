@@ -8,15 +8,18 @@ The carrot didn't work when we were creating the repository.
 So we're 1.62X10ToThe11. :D
 
 ###Contributors
-Boying Tang - Leader  
-Christopher Liang - UX  
-Javis Wu - Middleware  
-Jion Fairchild - Backend  
+|Member | Role|
+|------|-----|
+|Boying Tang | Leader  |
+|Christopher Liang | UX  |
+|Javis Wu | Middleware  |
+|Jion Fairchild | Backend|
 
 ###Instructions
 1. Run app.py
 2. Go to http://0.0.0.0:5000/ or http://localhost:5000/
 3. Interact  
+4. Try logging in with: Username - Admin, Password - Admin
 
 Note: Must have flask and sqlite3 installed  
 flask: http://flask.pocoo.org/docs/0.10/installation/  
@@ -62,3 +65,4 @@ sqlite3: https://www.sqlite.org/download.html
 - [ ] \(hard\) Have a cover for the stories: picture links
 - [ ] Time stamps for original post and updates
 - [x] 10/14/2015 Default period added for automatic punctuation
+- [ ] User profile page
