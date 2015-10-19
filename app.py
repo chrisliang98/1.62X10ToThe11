@@ -14,8 +14,6 @@ def home():
         return render_template("home.html")
     else:
         button = request.form['button']
-        #uname = request.form['username']
-        #pword = request.form['password']
         if button == "Create Account":
             newUser = request.form['newUser']
             newPass = request.form['newPass']
@@ -98,6 +96,8 @@ def nStory():
 
 @app.route("/story/<title>",methods=['GET','POST'])
 def story(title=""):
+    poster=module.getPoster(title)
+    line=module.getPost(title)
     if 'n' in session:
         delete=''
         #show admin option for delete a story
@@ -105,7 +105,10 @@ def story(title=""):
             delete = '<input type="submit" name="button" value="Delete Story">'
             delete = Markup(delete)
         if request.method == "GET":
-            return render_template("story.html", title=title, poster=module.getPoster(title),line=module.getPost(title), delete=delete)
+            if module.getPost(title)==False:
+                return render_template("story.html", title=title, poster=poster,line=line, delete=delete, error="Story does not exist")
+            else:
+                return render_template("story.html", title=title, poster=poster,line=line, delete=delete)
         else:
             newLine = request.form['newLine']
             #newLine = punctCheck(newLine)
@@ -114,17 +117,17 @@ def story(title=""):
             if button == "Add to Story":
                 if len(newLine) == 0:
                     error="Nothing submitted for content"
-                    return render_template("story.html", title=title, poster=module.getPoster(title),line=module.getPost(title), delete=delete, error=error)
+                    return render_template("story.html", title=title, poster=poster,line=line, delete=delete, error=error)
             #puncuation check
                 if newLine[-1] != ".":
                     if newLine[-1] !="?":
                         if newLine[-1] !="!":
                             newLine+="."                        
                 if(module.addToPost(session['n'],title," " + newLine)):
-                    return render_template("story.html", title=title, poster=module.getPoster(title),line=module.getPost(title), delete=delete) 
+                    return render_template("story.html", title=title, poster=poster,line=line, delete=delete) 
                 #consecutive contribution error
                 else:
-                    return render_template("story.html",title=title,poster=module.getPoster(title), line=module.getPost(title),delete=delete,error="You cannot write two sentences in a row!")
+                    return render_template("story.html",title=title,poster=poster, line=module.line,delete=delete,error="You cannot write two sentences in a row!")
             #deletes story
             else:
                 module.removePost(title)
@@ -139,7 +142,7 @@ def stories():
     stories=module.getAllPosts()
     for item in stories:
         str+="<h1> <a href='story/%s'> %s</a> </h1>" %(item[1], item[1])
-        str+="<h2> Posted by: %s </h2>" %item[0]
+        #str+="<h2> Posted by: %s </h2>" %item[0]
         str+="<h3> %s </h3>" %item[2] + "<hr>"
 
     str= Markup(str)

@@ -25,16 +25,17 @@ a {
     text-decoration:none;
 }
 
-a:link {    
-    color:#969299;
+a:link {
+    color:#B3B3FD;
 }
 
 a:visited {
-    color: #FFFFFF;
+    color:#969299;
 }
 
 a:hover {
-    color:#C3BEC7;
+    color:#C3C5F6;
+
 }
 
 .icon {

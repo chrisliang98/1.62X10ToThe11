@@ -19,7 +19,7 @@ So we're 1.62X10ToThe11. :D
 1. Run app.py
 2. Go to http://0.0.0.0:5000/ or http://localhost:5000/
 3. Interact  
-4. Try logging in with: Username - Admin, Password - Admin
+4. Try logging in with: Username - Admin, Password - admin
 
 Note: Must have flask and sqlite3 installed  
 flask: http://flask.pocoo.org/docs/0.10/installation/  
@@ -59,9 +59,9 @@ sqlite3: https://www.sqlite.org/download.html
 - [x] 10/18/2015 Password changing option
 - [x] 10/13/2015 Limiting continuous user input on the same story
 - [x] 10/18/2015 Random story option
-- [x] 10/14/2015 Minimum password length
+- [x] 10/14/2015 Minimum password and username length: 4 characters
 - [x] 10/14/2015 Prevent users from adding blank lines/stories
-- [ ] \(not necessary\) Error for adding to non-existant posts
+- [x] 10/19/2015 Error for adding to non-existant posts
 - [ ] \(hard\) Have a cover for the stories: picture links
 - [ ] Time stamps for original post and updates
 - [x] 10/14/2015 Default period added for automatic punctuation
