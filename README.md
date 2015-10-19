@@ -55,7 +55,7 @@ sqlite3: https://www.sqlite.org/download.html
 - [x] 10/11/2015 User registration
 - [x] 10/12/2015 Delete story option for admin account
 - [x] 10/12/2015 Password encryption
-- [x] 10/13/2015 Database input sanitizing
+- [x] 10/13/2015 Basic database input sanitizing
 - [ ] Password changing option
 - [x] 10/13/2015 Limiting continuous user input on the same story
 - [ ] Random story option
@@ -66,3 +66,4 @@ sqlite3: https://www.sqlite.org/download.html
 - [ ] Time stamps for original post and updates
 - [x] 10/14/2015 Default period added for automatic punctuation
 - [ ] User profile page
+- [ ] Get a good grade
