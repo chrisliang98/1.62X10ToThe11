@@ -165,9 +165,9 @@ def passChange():
         button=request.form['button']
         if button=="Change Password":
             username=session['n']
-            oldpass=request.form['old']
-            newpass=request.form['new']
-            newpassc=request.form['newc']
+            oldpass=request.form['oldPass']
+            newpass=request.form['newPass']
+            newpassc=request.form['newPassC']
             if len(newpass)<4:
                 return render_template("passChange.html",error = "New password too short. Must be at least 4 characters")
             if newpass != newpassc:
@@ -175,8 +175,10 @@ def passChange():
             if module.changePassword(username,oldpass,newpass):
                 return render_template("passChange.html", success="Password changed")
             else:
-                return render_template("passChange.html", error="Wrong Current Password")
-            
+                return render_template("passChange.html", error="Wrong Current Password")            
+        else:
+            redirect(url_for("home"))
+
 #def punctCheck(newLine):
 #    if len(newLine)>0:
 #        if newLine[-1] != ".":
