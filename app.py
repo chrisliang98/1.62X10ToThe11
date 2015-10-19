@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, session, redirect, url_for, Markup
 import sqlite3
 import module
+import random
 
 app = Flask(__name__)
 
@@ -144,6 +145,14 @@ def stories():
     str= Markup(str)
 
     return render_template("stories.html", link=str) 
+
+@app.route("/random")
+def randomStory():
+    everything=module.getAllPosts()
+    number=random.randint(0,len(everything)-1)
+    stuff=everything[number][1]
+    
+    return redirect("/story/%s") %(stuff)
 
 #def punctCheck(newLine):
 #    if len(newLine)>0:
