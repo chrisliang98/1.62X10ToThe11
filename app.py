@@ -153,9 +153,9 @@ def randomStory():
     title=everything[number][1]
     str="<a href='story/%s'> Click here to redirect </a>" %title
 
-    str=Markup(str)
+    link=Markup(str)
 
-    return render_template("forward.html", title=title)
+    return render_template("forward.html", link=link)
 
 @app.route("/pword", methods=['GET','POST'])
 def passChange():
