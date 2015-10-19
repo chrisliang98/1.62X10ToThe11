@@ -151,11 +151,11 @@ def randomStory():
     everything=module.getAllPosts()
     number=random.randint(0,len(everything)-1)
     title=everything[number][1]
-    str="<a href='story/%s'> Click here to redirect </a>" %title
+    str='<meta http-equiv="refresh" content="0; /story/%s" />' % title
 
-    str=Markup(str)
+    lin=Markup(str)
 
-    return render_template("forward.html", title=title)
+    return render_template("forward.html", link=lin)
 
 @app.route("/pword", methods=['GET','POST'])
 def passChange():
