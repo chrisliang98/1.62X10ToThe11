@@ -20,52 +20,52 @@
                     <button onclick="location.href='/logout'" class="navbar homeNav">Logout</button>
                 </span>
             </nav>
-            {% else %}
-            <body class='home'>
-                <div class="leftT">
-                    <center>
-                        <h2 id="title">Log In</h2>
-                        Username<br><br>
-                        Password<br><br>
-                        <form method="POST">
-                            <input id="button" type="submit" name="button" value="Login">
-                            <div class="leftI">
-                                <input type="text" name="username" class="box"><br>
-                                <input id="inputspace" type="password" name="password" class="box">
-                            </div>
-                        </form>
-                    </center>
-                </div>
-                <div class="rightT">
-                    <center>
-                        <h2 id="title"> New User </h2>
-                        Username<br><br>
-                        New Password<br><br>
-                        Confirm Password<br><br>
-                        <form method="POST">
-                            <input id="button" type="submit" name="button" value="Create Account">
-                            <div class="rightI">
-                                <input type="text" name="newUser" class="box"><br>
-                                <input id="inputspace" type="password" name="newPass" class="box"><br>
-                                <input id="inputspace2" type="password" name="newPassC" class="box"><br><br>
-                            </div>
-                        </form>
-                    </center>
-                </div>
-                {% endif %}
-                {% if error %}
-                <div class="errorL">
-                    <font color="red">{{error}}</font> 
-                </div>
-                {% endif %}
-                <div class="errorR">
-                    {% if success %}
-                    <p><font color="green">{{success}}</font></p>
-                    {% endif %}
-                    {% if error2 %}
-                    <p><font color="red"> {{error2}} </font></p>
-                    {% endif %}
-                </div>
+    {% else %}
+    <body class='home'>
+        <div class="leftT">
+            <center>
+                <h2 id="title">Log In</h2>
+                Username<br><br>
+                Password<br><br>
+                <form method="POST">
+                    <input id="button" type="submit" name="button" value="Login">
+                    <div class="leftI">
+                        <input type="text" name="username" class="box"><br>
+                        <input id="inputspace" type="password" name="password" class="box">
+                    </div>
+                </form>
+            </center>
+        </div>
+        <div class="rightT">
+            <center>
+                <h2 id="title"> New User </h2>
+                Username<br><br>
+                New Password<br><br>
+                Confirm Password<br><br>
+                <form method="POST">
+                    <input id="button" type="submit" name="button" value="Create Account">
+                    <div class="rightI">
+                        <input type="text" name="newUser" class="box"><br>
+                        <input id="inputspace" type="password" name="newPass" class="box"><br>
+                        <input id="inputspace2" type="password" name="newPassC" class="box"><br><br>
+                    </div>
+                </form>
+            </center>
+        </div>
+        {% endif %}
+        {% if error %}
+        <div class="errorL">
+            <font color="red">{{error}}</font> 
+        </div>
+        {% endif %}
+        <div class="errorR">
+        {% if success %}
+            <p><font color="green">{{success}}</font></p>
+        {% endif %}
+        {% if error2 %}
+            <p><font color="red"> {{error2}} </font></p>
+        {% endif %}
+        </div>
         </center>
-            </body>
+    </body>
 </html> 

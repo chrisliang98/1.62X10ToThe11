@@ -1,0 +1,23 @@
+<!DOCTYPE>
+<html>
+    <header>
+        <title>Page Not Found</title>
+        <link rel="stylesheet" type="text/css" href="/static/style.css">
+    </header>
+    <body>
+    {% if 'n' in session %}
+        <nav> 
+            <center>
+                <button onclick="location.href='/'" class="navbar">Home</button>
+                <button onclick="location.href='/stories'" class="navbar">All Stories </button>
+                <button onclick="location.href='/about'" class="navbar">About</button>
+                <button onclick="location.href='/logout'" class="navbar">Logout</button>
+            </center>
+        </nav>
+    {% endif %}
+    <center>
+        <h1 class="center">Page not found</h1>
+        <a href="/home">Login</a>
+    </center>
+    </body>
+</html>

@@ -6,27 +6,27 @@
     </header>
     {% if 'n' in session %}
     <body>
-    <nav> 
-        <center>
-            <button onclick="location.href='/'" class="navbar">Home</button>
-            <button onclick="location.href='/newStory'" class="navbar">Submit New Story</button>
-            <button onclick="location.href='/stories'" class="navbar">All Stories </button>
-		    <button onclick="location.href='/about'" class="navbar">About</button>
-            <button onclick="location.href='/logout'" class="navbar">Logout</button>
-        </center>
-    </nav>
+        <nav> 
+            <center>
+                <button onclick="location.href='/'" class="navbar">Home</button>
+                <button onclick="location.href='/newStory'" class="navbar">Submit New Story</button>
+                <button onclick="location.href='/stories'" class="navbar">All Stories </button>
+                <button onclick="location.href='/about'" class="navbar">About</button>
+                <button onclick="location.href='/logout'" class="navbar">Logout</button>
+            </center>
+        </nav>
         <center>
             <div class='story'>
                 <h1> {{title}} </h1>
                 <h3> Posted by: {{poster}} </h3>
                 <h2><p>{{line}}</p></h2>
             </div>
-                <form method="POST" class="bottom">
-                    <input type="text" name="newLine" maxlength="100"> 
-                    <br><br>
-                    <input type="submit" name="button" value="Add to Story">
-		    {{delete}}
-                </form>
+            <form method="POST" class="bottom">
+                <input type="text" name="newLine" maxlength="100"> 
+                <br><br>
+                <input type="submit" name="button" value="Add to Story">
+                {{delete}}
+            </form>
             <h3><font color="red">{{error}}</font></h3>
         </center>
     </body>

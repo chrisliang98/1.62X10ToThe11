@@ -3,46 +3,42 @@
         <link rel="stylesheet" type="text/css"href="/static/style.css">
         <title>About</title>
     </head>
+    {% if 'n' in session %}
     <body>
-        {% if 'n' in session %}
-        <body>
-            <nav> 
-                <center>
-                    <button onclick="location.href='/'" class="navbar">Home</button>
-                    <button onclick="location.href='/newStory'" class="navbar">Submit New Story</button>
-                    <button onclick="location.href='/stories'" class="navbar">All Stories </button>
-                    <button onclick="location.href='/about'" class="navbar">About</button>
-                    <button onclick="location.href='/logout'" class="navbar">Logout</button>
-                </center>
-            </nav>
-            {% endif %}
+        <nav> 
             <center>
-                <h1>
-                    The Team
-                </h1>
-                <table style="font-size:30px">
-                    <tr> 
-                        <th>Leader</th>
-                        <th>UX</th>
-                        <th>Middleware</th>
-                        <th>Backend</th>
-                    </tr>
-                    <tr> 
-                        <th><image src="/static/boying.jpg" class="icon"></td>
-                        <th><image src="/static/chris.jpg" class="icon"></td>
-                        <th><image src="/static/javis.jpg" class="icon"> </td>
-                        <th><image src="/static/jion.jpg" class="icon"> </td>
-                    </tr>
-                    <tr> 
-                        <th align="center"> Boying </td>
-                        <th align="center"> Chris </td>
-                        <th align="center"> Javis </td>
-                        <th align="center"> Jion </td>
-                    </tr>
-                </table>
-                <br>
-                <p style="font-size:20px; margin-left:25%; margin-right:25%;"> Welcome to our site! We created this web application to provide a place where people can create stories and add on to other people's stories. Visit our <a id="reg" href="https://github.com/jijiglobe/1.62X10ToThe11">Github page</a> for a more detailed breakdown of our project.          
-                </p> 
+                <button onclick="location.href='/'" class="navbar">Home</button>
+                <button onclick="location.href='/newStory'" class="navbar">Submit New Story</button>
+                <button onclick="location.href='/stories'" class="navbar">All Stories </button>
+                <button onclick="location.href='/about'" class="navbar">About</button>
+                <button onclick="location.href='/logout'" class="navbar">Logout</button>
             </center>
-        </body>
+        </nav>
+    {% endif %}
+    <center>
+        <h1>The Team</h1>
+        <table style="font-size:30px">
+            <tr> 
+                <th>Leader</th>
+                <th>UX</th>
+                <th>Middleware</th>
+                <th>Backend</th>
+            </tr>
+            <tr> 
+                <th><image src="/static/boying.jpg" class="icon"></td>
+                <th><image src="/static/chris.jpg" class="icon"></td>
+                <th><image src="/static/javis.jpg" class="icon"> </td>
+                <th><image src="/static/jion.jpg" class="icon"> </td>
+            </tr>
+            <tr> 
+                <th align="center"> Boying </td>
+                <th align="center"> Chris </td>
+                <th align="center"> Javis </td>
+                <th align="center"> Jion </td>
+            </tr>
+        </table>
+        <br>
+        <p style="font-size:20px; margin-left:25%; margin-right:25%;"> Welcome to our site! We created this web application to provide a place where people can create stories and add on to other people's stories. Visit our <a id="reg" href="https://github.com/jijiglobe/1.62X10ToThe11" target="_blank">Github page</a> for a more detailed breakdown of our project.</p> 
+        </center>
+    </body>
 </html>

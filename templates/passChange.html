@@ -6,22 +6,22 @@
     </head>
     <body>
         <center>
-            <br><br>
+        <br><br>
         <h1> Password Change</h1>
         <h3>{{session.n}}</h3>
-            <form method="POST" class="center">
-                <br><br>
-                Old Password<input id="rightfield" type="password" name="oldPass" class="box"><br><br>
-                New Password<input id="rightfield" type="password" name="newPass" class="box"><br><br>
-                Confirm New Password<input id="rightfield" type="password" name="newPassC" class="box"><br><br><br>
-                <input  type="submit" name="button" value="Change Password">
-                <input  type="submit" name="button" value="Back">
-            </form>
-            {% if error %}
-            <p><font color="red">{{error}}</font></p>
-            {% endif %}
-            {% if success %}
-            <p><font color="green">{{success}}</font></p>
-            {% endif %}
+        <form method="POST" class="center">
+            <br><br>
+            Old Password<input id="rightfield" type="password" name="oldPass" class="box"><br><br>
+            New Password<input id="rightfield" type="password" name="newPass" class="box"><br><br>
+            Confirm New Password<input id="rightfield" type="password" name="newPassC" class="box"><br><br><br>
+            <input  type="submit" name="button" value="Change Password">
+            <input  type="submit" name="button" value="Back">
+        </form>
+        {% if error %}
+        <p><font color="red">{{error}}</font></p>
+        {% endif %}
+        {% if success %}
+        <p><font color="green">{{success}}</font></p>
+        {% endif %}
     </body>
 </html>
