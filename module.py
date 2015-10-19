@@ -32,6 +32,17 @@ def newUser(username,password):
     conn.commit()
     return True
 
+def changePassword(username, oldPassword, newPassword):
+    newPassword = sanitize(newPassword);
+    username = sanitize(username);
+    if(authenticate(username,oldPassword)):
+       conn = sqlite3.connect("myDataBase.db")
+       c = conn.cursor()
+       c.execute('update logins set password = "%s" where username = "%s";' % (encrypt(username,newPassword), username))
+       conn.commit()
+       return True
+    return False
+
 def makePost(username, title, contents):
     username = sanitize(username)
     title = sanitize(title)
@@ -94,4 +105,3 @@ def removePost(title):
 
     #removes post with tile=title from database if it exists and username = admin
     #returns false if operation failed
-
