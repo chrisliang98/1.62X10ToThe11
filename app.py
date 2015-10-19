@@ -27,7 +27,7 @@ def home():
                     return render_template('home.html',error2="Username must be longer than 4 characters")
                 if len(newPass)<4:
                     return render_template('home.html',error2="Password must be longer than 4 characters")
-                #accoutn created successfully
+                #account created successfully
                 if  module.newUser(newUser,newPass):
                     return render_template('home.html',success="Account created!")
                 #username taken error
@@ -178,7 +178,7 @@ def passChange():
             return redirect(url_for("home"))
 
 if __name__ == "__main__":
-    app.debug = False
+    app.debug = True
     app.secret_key="c720minusboying"
     app.run(host='0.0.0.0', port=5000)
 
