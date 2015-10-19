@@ -127,7 +127,7 @@ def story(title=""):
                     return render_template("story.html", title=title, poster=poster,line=line, delete=delete) 
                 #consecutive contribution error
                 else:
-                    return render_template("story.html",title=title,poster=poster, line=module.line,delete=delete,error="You cannot write two sentences in a row!")
+                    return render_template("story.html",title=title,poster=poster, line=line,delete=delete,error="You cannot write two sentences in a row!")
             #deletes story
             else:
                 module.removePost(title)
