@@ -13,9 +13,9 @@ def home():
     if request.method=="GET":
         return render_template("home.html")
     else:
-	button = request.form['button']
+        button = request.form['button']
         #uname = request.form['username']
-	#pword = request.form['password']
+        #pword = request.form['password']
         if button == "Create Account":
             newUser = request.form['newUser']
             newPass = request.form['newPass']
@@ -36,7 +36,7 @@ def home():
             else:
                 return render_template('home.html',error2="Passwords do not match!")
         #Login
-    	#if credentials valid, log them in with session
+        #if credentials valid, log them in with session
         if button == "Login":
             uname = request.form['username']
             pword = request.form['password']
@@ -44,9 +44,9 @@ def home():
                 if 'n' not in session:
                     session['n'] = uname
                     return redirect(url_for('home'))
-                    #else renders login w/ error message
+                #else renders login w/ error message
             else:
-                    return render_template("home.html",error="Invalid Username or Password")
+                return render_template("home.html",error="Invalid Username or Password")
 
 @app.route('/about')
 def about():
@@ -73,7 +73,7 @@ def nStory():
         #valid input check
         error=""
         if len(title) == 0:
-            error+="Nothing submitted for title."
+            error+="Nothing submitted for title.\n"
         if len(line) == 0:
             error+=" Nothing submitted for content."
         if len(error) > 0:
@@ -141,7 +141,7 @@ def stories():
         str+="<h1> <a href='story/%s'> %s</a> </h1>" %(item[1], item[1])
         str+="<h2> Posted by: %s </h2>" %item[0]
         str+="<h3> %s </h3>" %item[2] + "<hr>"
-        
+
     str= Markup(str)
 
     return render_template("stories.html", link=str) 
@@ -152,9 +152,7 @@ def randomStory():
     number=random.randint(0,len(everything)-1)
     title=everything[number][1]
     str='<meta http-equiv="refresh" content="0; /story/%s" />' % title
-
     lin=Markup(str)
-
     return render_template("forward.html", link=lin)
 
 @app.route("/pword", methods=['GET','POST'])
@@ -179,17 +177,8 @@ def passChange():
         else:
             return redirect(url_for("home"))
 
-#def punctCheck(newLine):
-#    if len(newLine)>0:
-#        if newLine[-1] != ".":
-#            if newLine[-1] !="?":
-#                if newLine[-1] !="!":
-#                    return newLine+"."
-#    else:
-#        return newLine
-                
 if __name__ == "__main__":
-    app.debug = True
+    app.debug = False
     app.secret_key="c720minusboying"
     app.run(host='0.0.0.0', port=5000)
 

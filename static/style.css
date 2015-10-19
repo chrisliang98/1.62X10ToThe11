@@ -17,6 +17,10 @@ ul li input {
     border-radius: 5px;
 }
 
+#reg {
+    text-decoration:underline;
+}
+
 a {
     text-decoration:none;
 }
@@ -31,6 +35,12 @@ a:visited {
 
 a:hover {
     color:#C3BEC7;
+}
+
+.icon {
+    width:100%;
+    height:auto%;
+    max-width:300px;
 }
 
 input {
@@ -93,6 +103,7 @@ input[type="submit"]:active {
 }
 
 .box {
+    margin:2%;
     width:100px;
     border-radius:2px;
 }
@@ -138,8 +149,16 @@ input[type="submit"]:active {
 }
 
 .navbar.homeNav {
-    width:40%;
-    margin:20px;
+    width:45%;
+    margin-left:45%;
+    margin-right:45%;
+    margin:3%;
+}
+
+#rightfield {
+    position:absolute;
+    right:6%;
+    margin:-1.5%;
 }
 
 .button {
@@ -149,7 +168,7 @@ input[type="submit"]:active {
 
 .center {
     position:absolute;
-    top:35%;
+    top:22%;
     left:34%;
     width:30%;
     padding:10px;

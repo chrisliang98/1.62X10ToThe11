@@ -17,6 +17,7 @@
             <center>
                 <button onclick="location.href='/'" class="navbar">Home</button>
                 <button onclick="location.href='/stories'" class="navbar">All Stories </button>
+		        <button onclick="location.href='/about'" class="navbar">About</button>
                 <button onclick="location.href='/logout'" class="navbar">Logout</button>
             </center>
         </nav>
@@ -27,9 +28,8 @@
                     <li>Story Title</li>
                     <li><input type="text" name="sTitle"></li><br>
                     <li>First line of Story</li>
-                    <li><input type="text" name="entry" maxlength="100"></li><br>
+                    <li><input type="textfield" name="entry" maxlength="100"></li><br>
                     <li><input type="submit" class="button" name="button" value="Submit"></li>
-                    <li><input type="submit" class="button" name="button" value="Cancel"></li>
 		    <li><font color="red" size="4">{{error}}</font></li>
                 </ul>       
             </form>
