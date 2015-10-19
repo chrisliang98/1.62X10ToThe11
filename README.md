@@ -8,15 +8,18 @@ The carrot didn't work when we were creating the repository.
 So we're 1.62X10ToThe11. :D
 
 ###Contributors
-Boying Tang - Leader  
-Christopher Liang - UX  
-Javis Wu - Middleware  
-Jion Fairchild - Backend  
+|Member | Role|
+|------|-----|
+|Boying Tang | Leader  |
+|Christopher Liang | UX  |
+|Javis Wu | Middleware  |
+|Jion Fairchild | Backend|
 
 ###Instructions
 1. Run app.py
 2. Go to http://0.0.0.0:5000/ or http://localhost:5000/
 3. Interact  
+4. Try logging in with: Username - Admin, Password - Admin
 
 Note: Must have flask and sqlite3 installed  
 flask: http://flask.pocoo.org/docs/0.10/installation/  
@@ -54,6 +57,12 @@ sqlite3: https://www.sqlite.org/download.html
 - [x] 10/12/2015 Password encryption
 - [x] 10/13/2015 Database input sanitizing
 - [ ] Password changing option
-- [ ] Limiting continuous user input on the same story
+- [x] 10/13/2015 Limiting continuous user input on the same story
 - [ ] Random story option
-- [ ] Minimum password length
+- [x] 10/14/2015 Minimum password length
+- [x] 10/14/2015 Prevent users from adding blank lines/stories
+- [ ] \(not necessary\) Error for adding to non-existant posts
+- [ ] \(hard\) Have a cover for the stories: picture links
+- [ ] Time stamps for original post and updates
+- [x] 10/14/2015 Default period added for automatic punctuation
+- [ ] User profile page

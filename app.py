@@ -12,22 +12,30 @@ def home():
     if request.method=="GET":
         return render_template("home.html")
     else:
-        #login form submission
 	button = request.form['button']
         #uname = request.form['username']
 	#pword = request.form['password']
-    	#if credentials valid, log them in with session
         if button == "Create Account":
             newUser = request.form['newUser']
             newPass = request.form['newPass']
             newPassC = request.form['newPassC']
+            #password match check
             if (newPass == newPassC):
+                #username and password lengths check
+                if len(newUser)<4:
+                    return render_template('home.html',error2="Username must be longer than 4 characters")
+                if len(newPass)<4:
+                    return render_template('home.html',error2="Password must be longer than 4 characters")
+                #accoutn created successfully
                 if  module.newUser(newUser,newPass):
                     return render_template('home.html',success="Account created!")
+                #username taken error
                 else:
                     return render_template('home.html',error2="Username taken")            
             else:
                 return render_template('home.html',error2="Passwords do not match!")
+        #Login
+    	#if credentials valid, log them in with session
         if button == "Login":
             uname = request.form['username']
             pword = request.form['password']
@@ -38,6 +46,10 @@ def home():
                     #else renders login w/ error message
             else:
                     return render_template("home.html",error="Invalid Username or Password")
+
+@app.route('/about')
+def about():
+    return render_template("about.html");
 
 
 @app.route('/logout', methods=['GET','POST'])
@@ -57,39 +69,62 @@ def nStory():
         button=request.form['button']
         title=request.form['sTitle']
         line=request.form['entry']
+        #valid input check
+        error=""
+        if len(title) == 0:
+            error+="Nothing submitted for title."
+        if len(line) == 0:
+            error+=" Nothing submitted for content."
+        if len(error) > 0:
+            return render_template("new.html", error=error)
+        #add default period at end of submission
+        #line=punctCheck(line)
         if line[-1] != ".":
-            if line[-1] != "?":
-                if line[-1] != "!":
-                    line=line+"."
+            if line[-1] !="?":
+                if line[-1] !="!":
+                    line+="."       
+#redirect to newly created story
         if button=="Submit":
             module.makePost(username, title, line)
             return redirect('/story/%s' %title)
+        #redirect home
         if button=="Cancel":
             return redirect(url_for('home'))
         else:
             return render_template("new.html")
-        return render_template("new.html")
+
 
 
 @app.route("/story/<title>",methods=['GET','POST'])
 def story(title=""):
-    delete=''
     if 'n' in session:
+        delete=''
+        #show admin option for delete a story
         if session['n'] == "Admin":
             delete = '<input type="submit" name="button" value="Delete Story">'
             delete = Markup(delete)
         if request.method == "GET":
-            return render_template("story.html", title=title, line=module.getPost(title), delete=delete)
+            return render_template("story.html", title=title, poster=module.getPoster(title),line=module.getPost(title), delete=delete)
         else:
             newLine = request.form['newLine']
-            if newLine[-1] != ".":
-                if newLine[-1] !="?":
-                    if newLine[-1] !="!":
-                        newLine=newLine+"."
+            #newLine = punctCheck(newLine)
             button = request.form['button']
+            #add to story
             if button == "Add to Story":
-                module.addToPost(title," " + newLine)
-                return render_template("story.html", title=title, line=module.getPost(title), delete=delete) 
+                if len(newLine) == 0:
+                    error="Nothing submitted for content"
+                    return render_template("story.html", title=title, poster=module.getPoster(title),line=module.getPost(title), delete=delete, error=error)
+            #puncuation check
+                if newLine[-1] != ".":
+                    if newLine[-1] !="?":
+                        if newLine[-1] !="!":
+                            newLine+="."                        
+                if(module.addToPost(session['n'],title," " + newLine)):
+                    return render_template("story.html", title=title, poster=module.getPoster(title),line=module.getPost(title), delete=delete) 
+                #consecutive contribution error
+                else:
+                    return render_template("story.html",title=title,poster=module.getPoster(title), line=module.getPost(title),delete=delete,error="You cannot write two sentences in a row!")
+            #deletes story
             else:
                 module.removePost(title)
                 return redirect(url_for('stories'))
@@ -98,7 +133,7 @@ def story(title=""):
 
 @app.route("/stories")
 def stories():
-
+    #generates html for displaying the title as a link
     str=""
     stories=module.getAllPosts()
     for item in stories:
@@ -110,7 +145,15 @@ def stories():
 
     return render_template("stories.html", link=str) 
 
-
+#def punctCheck(newLine):
+#    if len(newLine)>0:
+#        if newLine[-1] != ".":
+#            if newLine[-1] !="?":
+#                if newLine[-1] !="!":
+#                    return newLine+"."
+#    else:
+#        return newLine
+                
 if __name__ == "__main__":
     app.debug = True
     app.secret_key="c720minusboying"

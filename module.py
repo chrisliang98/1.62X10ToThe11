@@ -69,6 +69,16 @@ def getPost(title):
     #returns the content of post with title = title
     #may only be useful for debugging
 
+def getPoster(title):
+    title = sanitize(title)
+    conn = sqlite3.connect("myDataBase.db")
+    c = conn.cursor()
+    ans = c.execute('select * from posts where title="%s";' % title)
+    for r in ans:
+        return r[0]
+    #returns the original poster of a story
+
+
 def getAllPosts():
     conn = sqlite3.connect("myDataBase.db")
     c = conn.cursor()

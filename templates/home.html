@@ -4,26 +4,28 @@
         <title>Home</title>
         <link rel="stylesheet" type="text/css" href="/static/style.css">
     </header>
-    <body class="home">
-        {% if 'n' in session %}
-        <nav>
-            <center>
-                <button onclick="location.href='/'" class="navbar">Home</button>
-                <button onclick="location.href='newStory'" class="navbar">Submit New Story</button>
-                <button onclick="location.href='/stories'" class="navbar">All Stories </button>
-                <button onclick="location.href='/logout'" class="navbar">Logout</button>
-            </center>
-        </nav>
-        <center><font color="white">
+    {% if 'n' in session %}
+    <body>
+        <center>
+            <font color="white"><br><br><br>
                 <h1>Welcome {{session['n']}}</h1>
+            </font>
+            <nav>
+            <span class="center"><font size="40">
+                <button id="inputspace" onclick="location.href='newStory'" class="navbar homeNav">Submit New Story</button><br>
+                <button id="inputspace" onclick="location.href='/stories'" class="navbar homeNav">All Stories </button><br>
+                <button id="inputspace" onclick="location.href='/logout'" class="navbar homeNav">Logout</button>
+            </font></span>
+        </nav>
                 {% else %}
+                <body class="home">
                 <div class="leftT">
                     <center>
                         <h2 id="title">Log In</h2>
                         Username<br><br>
                         Password<br><br>
                         <form method="POST">
-                            <input id="button" type="submit" class="button" name="button" value="Login">
+                            <input id="button" type="submit" name="button" value="Login">
                             <div class="leftI">
                                 <input type="text" name="username" class="box"><br>
                                 <input id="inputspace" type="password" name="password" class="box">
@@ -38,7 +40,7 @@
                         New Password<br><br>
                         Confirm Password<br><br>
                         <form method="POST">
-                            <input id="button" type="submit" class="button" name="button" value="Create Account">
+                            <input id="button" type="submit" name="button" value="Create Account">
                             <div class="rightI">
                                 <input type="text" name="newUser" class="box"><br>
                                 <input id="inputspace" type="password" name="newPass" class="box"><br>
@@ -48,19 +50,19 @@
                         {% endif %}
                     </center>
                 </div>
-                        {% if error %}
-                        <div class="errorL">
-                            <font color="red">{{error}}</font> 
-                        </div>
-                        {% endif %}
-                        <div class="errorR">
-                        {% if success %}
-                        <p><font color="green">{{success}}</font></p>
-                        {% endif %}
-                        {% if error2 %}
-                        <p><font color="red"> {{error2}} </font></p>
-                        {% endif %}
-                        </div>
+                {% if error %}
+                <div class="errorL">
+                    <font color="red">{{error}}</font> 
+                </div>
+                {% endif %}
+                <div class="errorR">
+                    {% if success %}
+                    <p><font color="green">{{success}}</font></p>
+                    {% endif %}
+                    {% if error2 %}
+                    <p><font color="red"> {{error2}} </font></p>
+                    {% endif %}
+                </div>
         </center>
     </body>
 </html> 
