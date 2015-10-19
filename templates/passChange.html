@@ -4,14 +4,20 @@
         <title>Password Change</title>
         <link rel="stylesheet" type="text/css" href="/static/style.css">
     </head>
-    <body>
+    <body class="center">
+      <center>
       <form method="POST">
-	<input id="inputspace3" type="password" name="oldPass" class="box"><br>
-        <input id="inputspace" type="password" name="newPass" class="box"><br>
-        <input id="inputspace2" type="password" name="newPassC" class="box"><br>
-	<input id="button" type="submit" name="button" value="Change Password">
-	<input id="button" type="submit" name="button" value="Back">
+	Old Password:<input id="inputspace3" type="password" name="oldPass" class="box"><br>
+        New Password:<input id="inputspace" type="password" name="newPass" class="box"><br>
+        Confirm New Password:<input id="inputspace2" type="password" name="newPassC" class="box"><br><br>
+	<input  type="submit" name="button" value="Change Password">
+	<input  type="submit" name="button" value="Back">
       </form>
-      {{error}}
+      {% if error %}
+      <p><font color="red">{{error}}</font></p>
+      {% endif %}
+      {% if success %}
+      <p><font color="green">{{success}}</font></p>
+      {% endif %}
     </body>
 </html>

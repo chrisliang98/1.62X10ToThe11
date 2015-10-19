@@ -177,7 +177,7 @@ def passChange():
             else:
                 return render_template("passChange.html", error="Wrong Current Password")            
         else:
-            redirect(url_for("home"))
+            return redirect(url_for("home"))
 
 #def punctCheck(newLine):
 #    if len(newLine)>0:
