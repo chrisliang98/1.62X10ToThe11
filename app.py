@@ -154,6 +154,26 @@ def randomStory():
     
     return redirect("/story/%s") %(stuff)
 
+@app.route("/pword", methods=['GET','POST'])
+def passChange():
+    if request.method=="GET":
+        return render_template("passChange.html")
+    else:
+        button=request.form['button']
+        if button=="Change Password":
+            username=session['n']
+            oldpass=request.form['old']
+            newpass=request.form['new']
+            newpassc=request.form['newc']
+            if len(newpass)<4:
+                return render_template("passChange.html",error = "New password too short. Must be at least 4 characters")
+            if newpass != newpassc:
+                return render_template("passChange.html",error = "New passwords do not match")
+            if module.changePassword(username,oldpass,newpass):
+                return render_template("passChange.html", success="Password changed")
+            else:
+                return render_template("passChange.html", error="Wrong Current Password")
+            
 #def punctCheck(newLine):
 #    if len(newLine)>0:
 #        if newLine[-1] != ".":
