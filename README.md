@@ -61,7 +61,7 @@ sqlite3: https://www.sqlite.org/download.html
 - [x] 10/18/2015 Random story option
 - [x] 10/14/2015 Minimum password and username length: 4 characters
 - [x] 10/14/2015 Prevent users from adding blank lines/stories
-- [x] 10/19/2015 Error for adding to non-existant posts
+- [ ]  Error for adding to non-existant posts
 - [ ] \(hard\) Have a cover for the stories: picture links
 - [ ] Time stamps for original post and updates
 - [x] 10/14/2015 Default period added for automatic punctuation
