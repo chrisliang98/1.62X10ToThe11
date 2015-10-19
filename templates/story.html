@@ -5,6 +5,7 @@
         <link rel="stylesheet" type="text/css" href="/static/style.css">
     </header>
     {% if 'n' in session %}
+    <body>
     <nav> 
         <center>
             <button onclick="location.href='/'" class="navbar">Home</button>
@@ -13,19 +14,18 @@
             <button onclick="location.href='/logout'" class="navbar">Logout</button>
         </center>
     </nav>
-    <body>
         <center>
             <div class='story'>
                 <h1> {{title}} </h1>
-                <h3> Posted by: {{poster}} </h3><br>
-                <h2> {{line}} </h2>
+                <h3> Posted by: {{poster}} </h3>
+                <h2><p>{{line}}</p></h2>
+            </div>
                 <form method="POST" class="bottom">
                     <input type="text" name="newLine" maxlength="100"> 
                     <br><br>
                     <input type="submit" name="button" value="Add to Story">
                 </form>
-            </div>
-            <p><font color="red">{{error}}</font>
+            <h3><font color="red">{{error}}</font></h3>
         </center>
     </body>
     {% else %}

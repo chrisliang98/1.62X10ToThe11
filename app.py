@@ -43,6 +43,10 @@ def home():
             else:
                     return render_template("home.html",error="Invalid Username or Password")
 
+@app.route('/about')
+def about():
+    return render_template("about.html");
+
 
 @app.route('/logout', methods=['GET','POST'])
 def logoff():
