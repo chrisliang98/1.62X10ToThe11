@@ -98,17 +98,19 @@ def nStory():
 def story(title=""):
     poster=module.getPoster(title)
     line=module.getPost(title)
+    exists = True
     if 'n' in session:
         delete=''
         #show admin option for delete a story
-        if session['n'] == "Admin":
+        if session['n'] == "Admin" and module.getPost(title) is not None:
             delete = '<input type="submit" name="button" value="Delete Story">'
             delete = Markup(delete)
         if request.method == "GET":
-            if module.getPost(title)==False:
-                return render_template("story.html", title=title, poster=poster,line=line, delete=delete, error="Story does not exist")
+            if module.getPost(title) is None:
+                exists = False
+                return render_template("story.html", title="Post does not exist!", exists=exists);
             else:
-                return render_template("story.html", title=title, poster=poster,line=line, delete=delete)
+                return render_template("story.html", title=title, poster=poster,line=line, delete=delete,exists=exists)
         else:
             newLine = request.form['newLine']
             #newLine = punctCheck(newLine)
@@ -117,17 +119,18 @@ def story(title=""):
             if button == "Add to Story":
                 if len(newLine) == 0:
                     error="Nothing submitted for content"
-                    return render_template("story.html", title=title, poster=poster,line=line, delete=delete, error=error)
-            #puncuation check
+                    return render_template("story.html", title=title, poster=poster,line=line, delete=delete, error=error, exists=exists)
+                #puncuation check
                 if newLine[-1] != ".":
                     if newLine[-1] !="?":
                         if newLine[-1] !="!":
                             newLine+="."                        
                 if(module.addToPost(session['n'],title," " + newLine)):
-                    return render_template("story.html", title=title, poster=poster,line=line, delete=delete) 
+                    line = module.getPost(title)
+                    return render_template("story.html", title=title, poster=poster,line=line, delete=delete,exists=exists) 
                 #consecutive contribution error
                 else:
-                    return render_template("story.html",title=title,poster=poster, line=line,delete=delete,error="You cannot write two sentences in a row!")
+                    return render_template("story.html",title=title,poster=poster, line=line,delete=delete,error="You cannot write two sentences in a row!",exists=exists)
             #deletes story
             else:
                 module.removePost(title)

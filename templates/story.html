@@ -21,12 +21,14 @@
                 <!--<h3> Posted by: {{poster}} </h3>-->
                 <h2><p>{{line}}</p></h2>
             </div>
+            {% if exists %}
             <form method="POST" class="bottom">
                 <input type="text" name="newLine" maxlength="100"> 
                 <br><br>
                 <input type="submit" name="button" value="Add to Story">
                 {{delete}}
             </form>
+            {% endif %}
             <h3><font color="red">{{error}}</font></h3>
         </center>
     </body>

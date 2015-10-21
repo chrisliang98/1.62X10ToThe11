@@ -63,9 +63,9 @@ def getPost(title):
     title = sanitize(title)
     conn = sqlite3.connect("myDataBase.db")
     c = conn.cursor()
-    ans = c.execute('select * from posts where title ="%s";' % title) 
+    ans = c.execute('select * from posts where title ="%s";' % title)
     for r in ans:
-        return r[2]
+        return r[2];
     #returns the content of post with title = title
     #may only be useful for debugging
 
