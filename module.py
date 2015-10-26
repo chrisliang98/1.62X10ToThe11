@@ -1,6 +1,8 @@
 import sqlite3
 import md5;
 import re;
+
+#this is input sanitizing but wrong
 def sanitize(input):
     return re.sub('"', "  ", input)
 
