@@ -2,20 +2,20 @@
 
 1.62X10ToThe11 is a storyboard where users can add an sentence to existing stories or start a new story of their own.
 
-###Origin of project name
+### Origin of project name
 3 out of 4 of us in the group have Acer C720, and (3/4)\*72\**c* is 1.62\*10^11.  
 The carrot didn't work when we were creating the repository.  
 So we're 1.62X10ToThe11. :D
 
-###Contributors
-|Member | Role|
-|------|-----|
-|Boying Tang | Leader  |
-|Christopher Liang | UX  |
-|Javis Wu | Middleware  |
-|Jion Fairchild | Backend|
+### Contributors
+Member | Role
+------|-----
+Boying Tang | Leader  
+Christopher Liang | UX  
+Javis Wu | Middleware  
+Jion Fairchild | Backend
 
-###Instructions
+### Instructions
 1. Run app.py
 2. Go to http://0.0.0.0:5000/ or http://localhost:5000/
 3. Interact  
@@ -25,7 +25,7 @@ Note: Must have flask and sqlite3 installed
 flask: http://flask.pocoo.org/docs/0.10/installation/  
 sqlite3: https://www.sqlite.org/download.html 
 
-###Task List
+### Task List
 - [ ] \(ongoing\) Improving the aesthetics
 - [x] 10/11/2015 Write a New Story
 - [x] 10/11/2015 Add on to the Story
